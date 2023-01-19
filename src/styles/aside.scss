@@ -1,9 +1,9 @@
-$aside-background: #3c4b64;
-$aside-text-color: rgba(255, 255, 255, 0.6);
-$aside-nav-group-background: rgba(0, 0, 0, 0.2);
+$aside-background: #334056;
+$aside-text-color: rgba(255, 255, 255, 0.7);
+$complementary: #134C63;
 $aside-link-color: rgba(255, 255, 255, 0.6);
 $aside-link-color-hover: rgba(255, 255, 255, 0.87);
-$aside-link-background-hover: rgba(255, 255, 255, 0.05);
+$aside-link-background-hover: rgba(135, 214, 127, 0.2);
 $aside-toggler-height: 3rem;
 $aside-toggler-background: rgba(0, 0, 21, 0.2);
 $aside-toggler-background-hover: rgba(0, 0, 0, 0.3);
@@ -54,7 +54,7 @@ $aside-overlay-z-index: 1025;
 
     .nav-group {
       &.show {
-        background: $aside-nav-group-background;
+        background: $complementary;
       }
 
       .nav-link {
