@@ -67,5 +67,9 @@ $highlight: #F9F871;
 }
 
 .card-with-border { 
-  border: 1px solid $accent;
+  border: 2px solid $complementary;
+}
+
+.bg-complementary {
+  background-color: $complementary;
 }
