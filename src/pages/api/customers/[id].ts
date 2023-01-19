@@ -1,6 +1,6 @@
 import { CustomerType, ResponseError } from '@types'
 import { NextApiRequest, NextApiResponse } from 'next'
-import { CUSTOMERS } from 'src/data/customers'
+import customers from 'src/data/mock_customers.json'
 
 export default function personHandler(
   req: NextApiRequest,
@@ -8,9 +8,9 @@ export default function personHandler(
 ) {
   const { query } = req
   const { id } = query
-  const person = CUSTOMERS.find((p) => p.id === id)
+  const customer = customers.find((p) => p.id === id)
 
-  return person
-    ? res.status(200).json(person)
-    : res.status(404).json({ message: `User with id: ${id} not found.` })
+  return customer
+    ? res.status(200).json(customer)
+    : res.status(404).json({ message: `Customer with id: ${id} not found.` })
 }

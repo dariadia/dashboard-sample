@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { CustomerType, ResponseError } from '@types'
-import { CUSTOMERS } from 'src/data/customers'
+import customers from 'src/data/mock_customers.json'
 
 export default function customerHandler(
   req: NextApiRequest,
@@ -8,7 +8,7 @@ export default function customerHandler(
 ) {
   const { query } = req
   const { id } = query
-  const customer = CUSTOMERS.find((p) => p.id === id)
+  const customer = customers.find((p) => p.id === id)
 
   return customer
     ? res.status(200).json(customer)

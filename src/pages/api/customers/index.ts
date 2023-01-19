@@ -1,10 +1,10 @@
 import { CustomerType } from '@types'
 import { NextApiResponse, NextApiRequest } from 'next'
-import { CUSTOMERS } from 'src/data/customers'
+import customers from 'src/data/mock_customers.json'
 
 export default function handler(
   _req: NextApiRequest,
   res: NextApiResponse<CustomerType[]>
 ) {
-  return res.status(200).json(CUSTOMERS)
+  return res.status(200).json(customers)
 }
