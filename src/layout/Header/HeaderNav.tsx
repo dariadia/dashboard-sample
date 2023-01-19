@@ -10,8 +10,8 @@ export const HeaderNav: React.FC = () => {
         </Link>
       </Nav.Item>
       <Nav.Item>
-        <Link href="/" passHref legacyBehavior>
-          <Nav.Link className="p-2">Clients</Nav.Link>
+        <Link href="/customers" passHref legacyBehavior>
+          <Nav.Link className="p-2">Customers</Nav.Link>
         </Link>
       </Nav.Item>
       <Nav.Item>
