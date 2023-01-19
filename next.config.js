@@ -8,7 +8,13 @@ const nextConfig = {
     includePaths: [path.join(__dirname, 'styles')],
   },
   images: {
-    domains: ['img.pokemondb.net'],
+    domains: [
+      'images.unsplash.com', 
+      'images.pexels.com',  
+      'st2.depositphotos.com',
+      'img.freepik.com',
+      'media.istockphoto.com'
+    ],
   },
 }
 
