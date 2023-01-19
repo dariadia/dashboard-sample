@@ -51,14 +51,14 @@ const Home: NextPage = () => (
           <Card.Body className="pb-0 d-flex justify-content-between align-items-start">
             <div>
               <div className="fs-4 fw-semibold">
-                26K
+                66K
                 <span className="fs-6 ms-2 fw-normal">
-                  (-12.4%
-                  <FontAwesomeIcon icon={faArrowDown} fixedWidth />
+                  (+13.6%
+                  <FontAwesomeIcon icon={faArrowUp} fixedWidth />
                   )
                 </span>
               </div>
-              <div>Users</div>
+              <div>Customers</div>
             </div>
             <Dropdown align="end">
               <Dropdown.Toggle
@@ -97,7 +97,7 @@ const Home: NextPage = () => (
                     },
                   },
                   y: {
-                    min: 30,
+                    min: 20,
                     max: 89,
                     display: false,
                     grid: {
@@ -121,12 +121,12 @@ const Home: NextPage = () => (
                 },
               }}
               data={{
-                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                labels: ['January', 'February', 'March'],
                 datasets: [{
-                  label: 'My First dataset',
+                  label: 'Customers Q1',
                   backgroundColor: 'transparent',
                   borderColor: 'rgba(255,255,255,.55)',
-                  data: [65, 59, 84, 84, 51, 55, 40],
+                  data: [35, 49, 66],
                 }],
               }}
             />
@@ -135,18 +135,18 @@ const Home: NextPage = () => (
       </div>
 
       <div className="col-sm-6 col-lg-3">
-        <Card bg="info" text="white" className="mb-4">
+        <Card bg="success" text="white" className="mb-4">
           <Card.Body className="pb-0 d-flex justify-content-between align-items-start">
             <div>
               <div className="fs-4 fw-semibold">
-                $6.200
+                €56K
                 <span className="fs-6 ms-2 fw-normal">
-                  (40.9%
+                  (23.9%
                   <FontAwesomeIcon icon={faArrowUp} fixedWidth />
                   )
                 </span>
               </div>
-              <div>Income</div>
+              <div>Revenue</div>
             </div>
             <Dropdown align="end">
               <Dropdown.Toggle
@@ -185,8 +185,8 @@ const Home: NextPage = () => (
                     },
                   },
                   y: {
-                    min: -9,
-                    max: 39,
+                    min: 0,
+                    max: 65,
                     display: false,
                     grid: {
                       display: false,
@@ -208,12 +208,12 @@ const Home: NextPage = () => (
                 },
               }}
               data={{
-                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                labels: ['January', 'February', 'March'],
                 datasets: [{
-                  label: 'My First dataset',
+                  label: 'Revenue Q1',
                   backgroundColor: 'transparent',
                   borderColor: 'rgba(255,255,255,.55)',
-                  data: [1, 18, 9, 17, 34, 22, 11],
+                  data: [15, 29, 56],
                 }],
               }}
             />
@@ -222,18 +222,18 @@ const Home: NextPage = () => (
       </div>
 
       <div className="col-sm-6 col-lg-3">
-        <Card bg="warning" text="white" className="mb-4">
+        <Card bg="primary" text="white" className="mb-4">
           <Card.Body className="pb-0 d-flex justify-content-between align-items-start">
             <div>
               <div className="fs-4 fw-semibold">
-                2.49%
+                42.6%
                 <span className="fs-6 ms-2 fw-normal">
-                  (84.7%
+                  (2.7%
                   <FontAwesomeIcon icon={faArrowUp} fixedWidth />
                   )
                 </span>
               </div>
-              <div>Conversion Rate</div>
+              <div>Growth Rate</div>
             </div>
             <Dropdown align="end">
               <Dropdown.Toggle
@@ -282,12 +282,12 @@ const Home: NextPage = () => (
                 },
               }}
               data={{
-                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                labels: ['January', 'February', 'March'],
                 datasets: [{
-                  label: 'My First dataset',
+                  label: 'Growth Rate Q1',
                   backgroundColor: 'rgba(255,255,255,.2)',
                   borderColor: 'rgba(255,255,255,.55)',
-                  data: [78, 81, 80, 45, 34, 12, 40],
+                  data: [36, 45, 43],
                   fill: true,
                 }],
               }}
@@ -301,9 +301,9 @@ const Home: NextPage = () => (
           <Card.Body className="pb-0 d-flex justify-content-between align-items-start">
             <div>
               <div className="fs-4 fw-semibold">
-                44K
+                51K
                 <span className="fs-6 ms-2 fw-normal">
-                  (-23.6%
+                  (-11.6%
                   <FontAwesomeIcon icon={faArrowDown} fixedWidth />
                   )
                 </span>
@@ -361,7 +361,7 @@ const Home: NextPage = () => (
               data={{
                 labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December', 'January', 'February', 'March', 'April'],
                 datasets: [{
-                  label: 'My First dataset',
+                  label: 'Overall Visits',
                   backgroundColor: 'rgba(255,255,255,.2)',
                   borderColor: 'rgba(255,255,255,.55)',
                   data: [78, 81, 80, 45, 34, 12, 40, 85, 65, 23, 12, 98, 34, 84, 67, 82],
