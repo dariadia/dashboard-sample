@@ -133,7 +133,7 @@ export const AsideNav: React.FC = () => {
         Dashboard
         <small className="ms-auto"><Badge bg="info" className="ms-auto">NEW</Badge></small>
       </AsideNavItem>
-      <AsideNavItem icon={faCode} href="/pokemons">
+      <AsideNavItem icon={faCode} href="/customers">
         Sample
         <small className="ms-auto"><Badge bg="danger" className="ms-auto">DEMO</Badge></small>
       </AsideNavItem>
