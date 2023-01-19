@@ -13,7 +13,7 @@ export const Breadcrumb = () => {
         linkProps={{ className: 'text-decoration-none' }}
         href="/"
       >
-        TeamA KPI
+        Clients
       </BootstrapBreadcrumb.Item>
       <BootstrapBreadcrumb.Item active>Q1</BootstrapBreadcrumb.Item>
     </BootstrapBreadcrumb>
