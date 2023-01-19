@@ -17,7 +17,7 @@ export const AdminLayout = ({ children }: PropsWithChildren) => {
         <meta name="description" content="Sample app dashboard" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Aside isAsideShown={isShownAside} showAside={toggleisShownAside} />
+      <Aside isAsideShown={isShownAside} showAside={setShownAside} />
       <div className="wrapper d-flex flex-column min-vh-100 bg-dark">
         <Header toggleAside={toggleisShownAside} />
         <div className="body flex-grow-1 px-3">
