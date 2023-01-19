@@ -7,11 +7,11 @@ todo
 
 - [React](https://reactjs.org)
 - [TypeScript](https://www.typescriptlang.org/)
-- [Chakra-UI](https://sass-lang.com/](https://chakra-ui.com/))
+- react-bootstrap
 - [Next.js](https://nextjs.org/)
 
 ### run locally
 
 ```bash
-$ yarn dev
+$ npm run dev
 ```
