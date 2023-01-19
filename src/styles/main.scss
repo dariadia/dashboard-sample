@@ -1,0 +1,71 @@
+$avatar-size: 3rem;
+$avatar-status: 0.6666666667rem;
+$footer-height: 4rem;
+
+$main: #1D2330;
+$complementary: #134C63;
+$accent: #87D67F;
+$highlight: #F9F871;
+
+.avatar {
+  width: $avatar-size;
+  height: $avatar-size;
+  & > img {
+    object-fit: cover;
+  }
+}
+
+.avatar-status {
+  width: $avatar-status;
+  height: $avatar-status;
+}
+
+.progress-thin {
+  height: 0.4rem;
+}
+
+.header {
+  background-color: $main;
+  color: white;
+  .header-navbar {
+    min-height: 3rem;
+    .header-toggler {
+      color: $accent;
+    }
+    .header-nav {
+      .nav-link {
+        color: $accent;
+        &:hover {
+          color: $highlight;
+        }
+      }
+    }
+  }
+
+  .breadcrumb {
+    min-height: 2rem;
+    .breadcrumb-item {
+      a {
+        color: $accent;
+        &:hover {
+          color: $highlight;
+        }
+      }
+    }
+  }
+}
+
+.footer {
+  min-height: $footer-height;
+  color: white;
+  a {
+    color: $accent;
+    &:hover {
+      color: $highlight;
+    }
+  }
+}
+
+.card-with-border { 
+  border: 1px solid $accent;
+}
