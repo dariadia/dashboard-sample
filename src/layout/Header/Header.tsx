@@ -6,13 +6,8 @@ import { Button, Container } from 'react-bootstrap'
 import { faBell, faEnvelope } from '@fortawesome/free-regular-svg-icons'
 import { Nav } from 'react-bootstrap'
 
-type HeaderProps = {
-  toggleSidebar: () => void;
-  toggleSidebarMd: () => void;
-}
-
-export const Header: React.FC<HeaderProps> = (props) => {
-  const { toggleSidebar, toggleSidebarMd } = props
+export const Header: React.FC<{toggleAside: () => void;}> = (props) => {
+  const { toggleAside } = props
 
   return (
     <header className="header sticky-top mb-4 p-2 border-bottom">
@@ -21,7 +16,7 @@ export const Header: React.FC<HeaderProps> = (props) => {
           variant="link"
           className="header-toggler d-md-none px-md-0 me-md-3 rounded-0 shadow-none"
           type="button"
-          onClick={toggleSidebar}
+          onClick={toggleAside}
         >
           <FontAwesomeIcon icon={faBars} />
         </Button>
@@ -29,7 +24,7 @@ export const Header: React.FC<HeaderProps> = (props) => {
           variant="link"
           className="header-toggler d-none d-md-inline-block px-md-0 me-md-3 rounded-0 shadow-none"
           type="button"
-          onClick={toggleSidebarMd}
+          onClick={toggleAside}
         >
           <FontAwesomeIcon icon={faBars} />
         </Button>
