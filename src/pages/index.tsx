@@ -37,11 +37,17 @@ import {
   faTwitter,
 } from '@fortawesome/free-brands-svg-icons'
 import React, { useState } from 'react'
-import { PERSONS } from 'src/data/persons'
+import { DATA, PERSONS } from 'src/data/persons'
 
 Chart.register(CategoryScale, LinearScale, PointElement, LineElement, BarElement, Tooltip, Filler)
 
 const getRandomNumber = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1) + min)
+
+const STATUSES = [
+  'success', 'info', 'danger', 'primary', 'warning'
+]
+
+const getRandomStatus = () => STATUSES[getRandomNumber(0, 4)]
 
 const GraphSet: React.FC = () => (<div
   style={{
@@ -706,55 +712,49 @@ const Home: NextPage = () => {
                     <th className="text-center">
                       <FontAwesomeIcon icon={faUsers} fixedWidth />
                     </th>
-                    <th>User</th>
-                    <th>Usage</th>
+                    <th>Customer Name</th>
+                    <th>Purchase</th>
+                    <th className="text-center">Company name | Industry</th>
                     <th className="text-center">Payment Method</th>
-                    <th>Activity</th>
                     <th aria-label="Action" />
                   </tr>
                 </thead>
                 <tbody>
-                  <tr className="align-middle">
+                  {PERSONS.map((person, index) => <tr key={person} className="align-middle">
                     <td className="text-center">
                       <div className="avatar avatar-md d-inline-flex position-relative">
                         <Image
                           fill
                           className="rounded-circle"
-                          src={PERSONS[1]}
+                          src={person}
                           alt="user@email.com"
                         />
                         <span
-                          className="avatar-status position-absolute d-block bottom-0 end-0 bg-success rounded-circle border border-white"
+                          className={`avatar-status bg-${getRandomStatus()} position-absolute d-block bottom-0 end-0 rounded-circle border border-white`}
                         />
                       </div>
                     </td>
                     <td>
-                      <div>Yiorgos Avraamu</div>
-                      <div className="small">
-                        <span>New</span>
-                        {' '}
-                        | Registered: Jan 1, 2020
+                      <div>{DATA[index].full_name}</div>
+                      <div className="small text-white-50">
+                        Registered: {DATA[index].registered}
                       </div>
                     </td>
                     <td>
-                      <div className="clearfix">
+                      <div className="clearfix mb-2">
                         <div className="float-start">
-                          <div className="fw-semibold">50%</div>
-                        </div>
-                        <div className="float-end">
-                          <small >
-                            Jun 11, 2020 - Jul 10, 2020
-                          </small>
+                          <div className="fw-semibold">Latest investment: {getRandomNumber(100, 1000)} ({DATA[index].currency_code})</div>
                         </div>
                       </div>
-                      <ProgressBar className="progress-thin" variant="success" now={50} />
+                      <ProgressBar className="progress-thin" variant={getRandomStatus()} now={getRandomNumber(10, 100)} />
+                    </td>
+                    <td className="text-center">
+                      {DATA[index].company_name}
+                      <br />
+                     <small className="text-white-50">| {DATA[index].industry}</small>
                     </td>
                     <td className="text-center">
                       <FontAwesomeIcon icon={faCcAmex} size="lg" fixedWidth />
-                    </td>
-                    <td>
-                      <div className="small">Last login</div>
-                      <div className="fw-semibold">10 sec ago</div>
                     </td>
                     <td>
                       <Dropdown align="end">
@@ -779,336 +779,7 @@ const Home: NextPage = () => {
                         </Dropdown.Menu>
                       </Dropdown>
                     </td>
-                  </tr>
-                  <tr className="align-middle">
-                    <td className="text-center">
-                      <div className="avatar avatar-md d-inline-flex position-relative">
-                        <Image
-                          fill
-                          className="rounded-circle"
-                          src={PERSONS[0]}
-                          alt="user@email.com"
-                        />
-                        <span
-                          className="avatar-status position-absolute d-block bottom-0 end-0 bg-danger rounded-circle border border-white"
-                        />
-                      </div>
-                    </td>
-                    <td>
-                      <div>Avram Tarasios</div>
-                      <div className="small">
-                        <span>Recurring</span>
-                        {' '}
-                        | Registered: Jan 1, 2020
-                      </div>
-                    </td>
-                    <td>
-                      <div className="clearfix">
-                        <div className="float-start">
-                          <div className="fw-semibold">10%</div>
-                        </div>
-                        <div className="float-end">
-                          <small >
-                            Jun 11, 2020 - Jul 10, 2020
-                          </small>
-                        </div>
-                      </div>
-                      <ProgressBar className="progress-thin" variant="info" now={10} />
-                    </td>
-                    <td className="text-center">
-                      <FontAwesomeIcon icon={faCcVisa} size="lg" fixedWidth />
-                    </td>
-                    <td>
-                      <div className="small">Last login</div>
-                      <div className="fw-semibold">5 minutes ago</div>
-                    </td>
-                    <td>
-                      <Dropdown align="end">
-                        <Dropdown.Toggle
-                          as="button"
-                          bsPrefix="btn"
-                          className="btn-link rounded-0 shadow-none p-0"
-                          id="action-user2"
-                        >
-                          <FontAwesomeIcon fixedWidth icon={faEllipsisVertical} />
-                        </Dropdown.Toggle>
-
-                        <Dropdown.Menu>
-                          <Dropdown.Item href="#/action-1">Info</Dropdown.Item>
-                          <Dropdown.Item href="#/action-2">Edit</Dropdown.Item>
-                          <Dropdown.Item
-                            className="text-danger"
-                            href="#/action-3"
-                          >
-                            Delete
-                          </Dropdown.Item>
-                        </Dropdown.Menu>
-                      </Dropdown>
-                    </td>
-                  </tr>
-                  <tr className="align-middle">
-                    <td className="text-center">
-                      <div className="avatar avatar-md d-inline-flex position-relative">
-                        <Image fill
-                          className="rounded-circle"
-                          src={PERSONS[2]}
-                          alt="user@email.com"
-                        />
-                        <span
-                          className="avatar-status position-absolute d-block bottom-0 end-0 bg-warning rounded-circle border border-white"
-                        />
-                      </div>
-                    </td>
-                    <td>
-                      <div>Quintin Ed</div>
-                      <div className="small">
-                        <span>New</span>
-                        {' '}
-                        | Registered: Jan 1, 2020
-                      </div>
-                    </td>
-                    <td>
-                      <div className="clearfix">
-                        <div className="float-start">
-                          <div className="fw-semibold">74%</div>
-                        </div>
-                        <div className="float-end">
-                          <small >
-                            Jun 11, 2020 - Jul 10, 2020
-                          </small>
-                        </div>
-                      </div>
-                      <ProgressBar className="progress-thin" variant="warning" now={74} />
-                    </td>
-                    <td className="text-center">
-                      <FontAwesomeIcon icon={faCcStripe} size="lg" fixedWidth />
-                    </td>
-                    <td>
-                      <div className="small">Last login</div>
-                      <div className="fw-semibold">1 hour ago</div>
-                    </td>
-                    <td>
-                      <Dropdown align="end">
-                        <Dropdown.Toggle
-                          as="button"
-                          bsPrefix="btn"
-                          className="btn-link rounded-0 shadow-none p-0"
-                          id="action-user3"
-                        >
-                          <FontAwesomeIcon fixedWidth icon={faEllipsisVertical} />
-                        </Dropdown.Toggle>
-
-                        <Dropdown.Menu>
-                          <Dropdown.Item href="#/action-1">Info</Dropdown.Item>
-                          <Dropdown.Item href="#/action-2">Edit</Dropdown.Item>
-                          <Dropdown.Item
-                            className="text-danger"
-                            href="#/action-3"
-                          >
-                            Delete
-                          </Dropdown.Item>
-                        </Dropdown.Menu>
-                      </Dropdown>
-                    </td>
-                  </tr>
-                  <tr className="align-middle">
-                    <td className="text-center">
-                      <div className="avatar avatar-md d-inline-flex position-relative">
-                        <Image
-                          fill
-                          className="rounded-circle"
-                          src={PERSONS[4]}
-                          alt="user@email.com"
-                        />
-                        <span
-                          className="avatar-status position-absolute d-block bottom-0 end-0 bg-secondary rounded-circle border border-white"
-                        />
-                      </div>
-                    </td>
-                    <td>
-                      <div>Enéas Kwadwo</div>
-                      <div className="small">
-                        <span>New</span>
-                        {' '}
-                        | Registered: Jan 1, 2020
-                      </div>
-                    </td>
-                    <td>
-                      <div className="clearfix">
-                        <div className="float-start">
-                          <div className="fw-semibold">98%</div>
-                        </div>
-                        <div className="float-end">
-                          <small >
-                            Jun 11, 2020 - Jul 10, 2020
-                          </small>
-                        </div>
-                      </div>
-                      <ProgressBar className="progress-thin" variant="danger" now={98} />
-                    </td>
-                    <td className="text-center">
-                      <FontAwesomeIcon icon={faCcPaypal} size="lg" fixedWidth />
-                    </td>
-                    <td>
-                      <div className="small">Last login</div>
-                      <div className="fw-semibold">Last month</div>
-                    </td>
-                    <td>
-                      <Dropdown align="end">
-                        <Dropdown.Toggle
-                          as="button"
-                          bsPrefix="btn"
-                          className="btn-link rounded-0 shadow-none p-0"
-                          id="action-user4"
-                        >
-                          <FontAwesomeIcon fixedWidth icon={faEllipsisVertical} />
-                        </Dropdown.Toggle>
-
-                        <Dropdown.Menu>
-                          <Dropdown.Item href="#/action-1">Info</Dropdown.Item>
-                          <Dropdown.Item href="#/action-2">Edit</Dropdown.Item>
-                          <Dropdown.Item
-                            className="text-danger"
-                            href="#/action-3"
-                          >
-                            Delete
-                          </Dropdown.Item>
-                        </Dropdown.Menu>
-                      </Dropdown>
-                    </td>
-                  </tr>
-                  <tr className="align-middle">
-                    <td className="text-center">
-                      <div className="avatar avatar-md d-inline-flex position-relative">
-                        <Image
-                          fill
-                          className="rounded-circle"
-                          src={PERSONS[3]}
-                          alt="user@email.com"
-                        />
-                        <span
-                          className="avatar-status position-absolute d-block bottom-0 end-0 bg-success rounded-circle border border-white"
-                        />
-                      </div>
-                    </td>
-                    <td>
-                      <div>Agapetus Tadeáš</div>
-                      <div className="small">
-                        <span>New</span>
-                        {' '}
-                        | Registered: Jan 1, 2020
-                      </div>
-                    </td>
-                    <td>
-                      <div className="clearfix">
-                        <div className="float-start">
-                          <div className="fw-semibold">22%</div>
-                        </div>
-                        <div className="float-end">
-                          <small >
-                            Jun 11, 2020 - Jul 10, 2020
-                          </small>
-                        </div>
-                      </div>
-                      <ProgressBar className="progress-thin" variant="info" now={22} />
-                    </td>
-                    <td className="text-center">
-                      <FontAwesomeIcon icon={faCcApplePay} size="lg" fixedWidth />
-                    </td>
-                    <td>
-                      <div className="small">Last login</div>
-                      <div className="fw-semibold">Last week</div>
-                    </td>
-                    <td>
-                      <Dropdown align="end">
-                        <Dropdown.Toggle
-                          as="button"
-                          bsPrefix="btn"
-                          className="btn-link rounded-0 shadow-none p-0"
-                          id="action-user5"
-                        >
-                          <FontAwesomeIcon fixedWidth icon={faEllipsisVertical} />
-                        </Dropdown.Toggle>
-
-                        <Dropdown.Menu>
-                          <Dropdown.Item href="#/action-1">Info</Dropdown.Item>
-                          <Dropdown.Item href="#/action-2">Edit</Dropdown.Item>
-                          <Dropdown.Item
-                            className="text-danger"
-                            href="#/action-3"
-                          >
-                            Delete
-                          </Dropdown.Item>
-                        </Dropdown.Menu>
-                      </Dropdown>
-                    </td>
-                  </tr>
-                  <tr className="align-middle">
-                    <td className="text-center">
-                      <div className="avatar avatar-md d-inline-flex position-relative">
-                        <Image
-                          fill
-                          className="rounded-circle"
-                          src={PERSONS[5]}
-                          alt="user@email.com"
-                        />
-                        <span
-                          className="avatar-status position-absolute d-block bottom-0 end-0 bg-danger rounded-circle border border-white"
-                        />
-                      </div>
-                    </td>
-                    <td>
-                      <div>Friderik Dávid</div>
-                      <div className="small">
-                        <span>New</span>
-                        {' '}
-                        | Registered: Jan 1, 2020
-                      </div>
-                    </td>
-                    <td>
-                      <div className="clearfix">
-                        <div className="float-start">
-                          <div className="fw-semibold">43%</div>
-                        </div>
-                        <div className="float-end">
-                          <small >
-                            Jun 11, 2020 - Jul 10, 2020
-                          </small>
-                        </div>
-                      </div>
-                      <ProgressBar className="progress-thin" variant="success" now={43} />
-                    </td>
-                    <td className="text-center">
-                      <FontAwesomeIcon icon={faCcAmex} size="lg" fixedWidth />
-                    </td>
-                    <td>
-                      <div className="small">Last login</div>
-                      <div className="fw-semibold">Yesterday</div>
-                    </td>
-                    <td>
-                      <Dropdown align="end">
-                        <Dropdown.Toggle
-                          as="button"
-                          bsPrefix="btn"
-                          className="btn-link rounded-0 shadow-none p-0"
-                          id="action-user6"
-                        >
-                          <FontAwesomeIcon fixedWidth icon={faEllipsisVertical} />
-                        </Dropdown.Toggle>
-
-                        <Dropdown.Menu>
-                          <Dropdown.Item href="#/action-1">Info</Dropdown.Item>
-                          <Dropdown.Item href="#/action-2">Edit</Dropdown.Item>
-                          <Dropdown.Item
-                            className="text-danger"
-                            href="#/action-3"
-                          >
-                            Delete
-                          </Dropdown.Item>
-                        </Dropdown.Menu>
-                      </Dropdown>
-                    </td>
-                  </tr>
+                  </tr>)}
                 </tbody>
               </table>
             </div></Card.Body>
