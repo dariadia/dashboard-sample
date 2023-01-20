@@ -36,15 +36,101 @@ import {
   faLinkedinIn,
   faTwitter,
 } from '@fortawesome/free-brands-svg-icons'
-import React from 'react'
+import React, { useState } from 'react'
 import { PERSONS } from 'src/data/persons'
 
 Chart.register(CategoryScale, LinearScale, PointElement, LineElement, BarElement, Tooltip, Filler)
 
-const random = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1) + min)
+const getRandomNumber = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1) + min)
 
-const Home: NextPage = () => (
-  <AdminLayout>
+const GraphSet: React.FC = () => (<div
+  style={{
+    height: '300px',
+    marginTop: '40px',
+  }}
+>
+  <Line
+    data={{
+      labels: ['01 Jan', '15 Jan', '01 Feb', '15 Feb', '01 March', '15 March'],
+      datasets: [{
+        label: 'Sessions dataset',
+        backgroundColor: 'rgba(0, 0, 0, 0.2)',
+        borderColor: 'rgba(13, 202, 240, 1)',
+        pointHoverBackgroundColor: 'white',
+        borderWidth: 2,
+        data: [
+          getRandomNumber(50, 300),
+          getRandomNumber(50, 300),
+          getRandomNumber(50, 300),
+          getRandomNumber(50, 300),
+          getRandomNumber(50, 300),
+          getRandomNumber(50, 300),
+        ],
+        fill: true,
+      }, {
+        label: 'My Second dataset',
+        borderColor: 'rgba(25, 135, 84, 1)',
+        pointHoverBackgroundColor: '#fff',
+        borderWidth: 2,
+        data: [
+          getRandomNumber(50, 200),
+          getRandomNumber(50, 200),
+          getRandomNumber(50, 200),
+          getRandomNumber(50, 200),
+          getRandomNumber(50, 200),
+          getRandomNumber(50, 200),
+          getRandomNumber(50, 200),
+        ],
+      }, {
+        label: 'Customer puchases dataset',
+        borderColor: 'rgba(220, 53, 69, 1)',
+        pointHoverBackgroundColor: '#fff',
+        borderWidth: 1,
+        borderDash: [8, 5],
+        data: [64, 55, 34, 65, 86, 91, 100],
+      }],
+    }}
+    options={{
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          display: false,
+        },
+      },
+      scales: {
+        x: {
+          grid: {
+            drawOnChartArea: false,
+          },
+        },
+        y: {
+          beginAtZero: true,
+          max: 350,
+          ticks: {
+            maxTicksLimit: 5,
+            stepSize: Math.ceil(250 / 5),
+          },
+        },
+      },
+      elements: {
+        line: {
+          tension: 0.4,
+        },
+        point: {
+          radius: 0,
+          hitRadius: 10,
+          hoverRadius: 4,
+          hoverBorderWidth: 3,
+        },
+      },
+    }}
+  />
+</div>)
+
+const Home: NextPage = () => {
+  const [shownSet, switchSet] = useState("one")
+
+  return (  <AdminLayout>
     <div className="row">
       <div className="col-sm-6 col-lg-3">
         <Card bg="primary" text="white" className="mb-4">
@@ -319,7 +405,6 @@ const Home: NextPage = () => (
               >
                 <FontAwesomeIcon fixedWidth icon={faEllipsisVertical} />
               </Dropdown.Toggle>
-
               <Dropdown.Menu>
                 <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
                 <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
@@ -373,21 +458,22 @@ const Home: NextPage = () => (
         </Card>
       </div>
     </div>
-    <Card className="mb-4 bg-dark card-with-border">
+    <Card className="mb-4 bg-dark card-with-border text-white">
       <Card.Body>
         <div className="d-flex justify-content-between">
           <div>
-            <h4 className="mb-0">Traffic</h4>
-            <div className="small text-black-50">January - July 2021</div>
+            <h4 className="mb-0">Customer Sessions</h4>
+            <div className="small">January - March 2023</div>
           </div>
           <div className="d-none d-md-block">
-            <ButtonGroup aria-label="Toolbar with buttons" className="mx-3">
+            <ButtonGroup aria-label="Graph toolbar" className="mx-3">
               <input
                 className="btn-check"
                 id="option1"
                 type="radio"
                 name="options"
                 autoComplete="off"
+                onClick={() => switchSet("two")}
               />
               <label className="btn btn-outline-secondary" htmlFor="option1">Day</label>
               <input
@@ -397,9 +483,10 @@ const Home: NextPage = () => (
                 name="options"
                 autoComplete="off"
                 defaultChecked
+                onClick={() => switchSet("one")}
               />
               <label
-                className="btn btn-outline-secondary active"
+                className="btn btn-outline-secondary"
                 htmlFor="option2"
               >
                 Month
@@ -410,143 +497,61 @@ const Home: NextPage = () => (
                 type="radio"
                 name="options"
                 autoComplete="off"
+                onClick={() => switchSet("three")}
               />
               <label className="btn btn-outline-secondary" htmlFor="option3">Year</label>
             </ButtonGroup>
-            <Button variant="primary">
+            <Button variant="primary" onClick={() => alert("Downloading the data")}>
               <FontAwesomeIcon icon={faDownload} fixedWidth />
             </Button>
           </div>
         </div>
-        <div
-          style={{
-            height: '300px',
-            marginTop: '40px',
-          }}
-        >
-          <Line
-            data={{
-              labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-              datasets: [{
-                label: 'My First dataset',
-                backgroundColor: 'rgba(0, 0, 0, 0.2)',
-                borderColor: 'rgba(13, 202, 240, 1)',
-                pointHoverBackgroundColor: '#fff',
-                borderWidth: 2,
-                data: [
-                  random(50, 200),
-                  random(50, 200),
-                  random(50, 200),
-                  random(50, 200),
-                  random(50, 200),
-                  random(50, 200),
-                  random(50, 200),
-                ],
-                fill: true,
-              }, {
-                label: 'My Second dataset',
-                borderColor: 'rgba(25, 135, 84, 1)',
-                pointHoverBackgroundColor: '#fff',
-                borderWidth: 2,
-                data: [
-                  random(50, 200),
-                  random(50, 200),
-                  random(50, 200),
-                  random(50, 200),
-                  random(50, 200),
-                  random(50, 200),
-                  random(50, 200),
-                ],
-              }, {
-                label: 'My Third dataset',
-                borderColor: 'rgba(220, 53, 69, 1)',
-                pointHoverBackgroundColor: '#fff',
-                borderWidth: 1,
-                borderDash: [8, 5],
-                data: [65, 65, 65, 65, 65, 65, 65],
-              }],
-            }}
-            options={{
-              maintainAspectRatio: false,
-              plugins: {
-                legend: {
-                  display: false,
-                },
-              },
-              scales: {
-                x: {
-                  grid: {
-                    drawOnChartArea: false,
-                  },
-                },
-                y: {
-                  beginAtZero: true,
-                  max: 250,
-                  ticks: {
-                    maxTicksLimit: 5,
-                    stepSize: Math.ceil(250 / 5),
-                  },
-                },
-              },
-              elements: {
-                line: {
-                  tension: 0.4,
-                },
-                point: {
-                  radius: 0,
-                  hitRadius: 10,
-                  hoverRadius: 4,
-                  hoverBorderWidth: 3,
-                },
-              },
-            }}
-          />
-        </div>
+        {shownSet === "one" ? <GraphSet /> : <GraphSet />}
       </Card.Body>
       <Card.Footer>
-        <div className="row row-cols-1 row-cols-md-5 text-center">
+        <div className="row my-2 row-cols-1 row-cols-md-5 text-center">
           <div className="col mb-sm-2 mb-0">
-            <div >Visits</div>
-            <div className="fw-semibold">29.703 Users (40%)</div>
+            <div>Purchases</div>
+            <div className="fw-semibold">49,503 Customers (55%)</div>
             <ProgressBar
               className="progress-thin mt-2"
               variant="success"
-              now={40}
+              now={55}
             />
           </div>
           <div className="col mb-sm-2 mb-0">
-            <div >Unique</div>
-            <div className="fw-semibold">24.093 Users (20%)</div>
+            <div>Unique</div>
+            <div className="fw-semibold">34,946 Sessions (38%)</div>
             <ProgressBar
               className="progress-thin mt-2"
               variant="info"
+              now={38}
+            />
+          </div>
+          <div className="col mb-sm-2 mb-0">
+            <div>Product views</div>
+            <div className="fw-semibold">48.756 Views (20%)</div>
+            <ProgressBar
+              className="progress-thin mt-2"
+              variant="warning"
               now={20}
             />
           </div>
           <div className="col mb-sm-2 mb-0">
-            <div >Page views</div>
-            <div className="fw-semibold">78.706 Views (60%)</div>
-            <ProgressBar
-              className="progress-thin mt-2"
-              variant="warning"
-              now={60}
-            />
-          </div>
-          <div className="col mb-sm-2 mb-0">
-            <div >New Users</div>
-            <div className="fw-semibold">22.123 Users (80%)</div>
+            <div>New Customers</div>
+            <div className="fw-semibold">1,536 Customers (5%)</div>
             <ProgressBar
               className="progress-thin mt-2"
               variant="danger"
-              now={80}
+              now={5}
             />
           </div>
           <div className="col mb-sm-2 mb-0">
-            <div >Bounce Rate</div>
+            <div>Return Rate</div>
             <div className="fw-semibold">40.15%</div>
             <ProgressBar
               className="progress-thin mt-2"
-              variant="primary"
+              variant="info"
               now={40}
             />
           </div>
@@ -1263,7 +1268,7 @@ const Home: NextPage = () => (
         </Card>
       </div>
     </div>
-  </AdminLayout>
-)
+  </AdminLayout>)
+}
 
 export default Home
