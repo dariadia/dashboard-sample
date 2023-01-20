@@ -1,13 +1,15 @@
 export type CustomerType = {
-  id: string
-  name: string
-  height: string
-  mass: string
-  hair_color: string
-  skin_color: string
-  eye_color: string
-  gender: string
+  id: string,
+  first_name: string,
+  last_name: string,
+  email: string,
+  gender: string,
+  avatar: string,
+  credit_card_type: string,
+  purchase: string,
+  currency_code: string
 }
+
 
 export type ResponseError = {
   message: string

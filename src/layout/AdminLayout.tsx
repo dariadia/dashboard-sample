@@ -7,7 +7,7 @@ import { Container } from 'react-bootstrap'
 
 export const AdminLayout = ({ children }: PropsWithChildren) => {
   const [isShownAside, setShownAside] = useState(false)
-  const toggleisShownAside = () => {
+  const toggleShownAside = () => {
     setShownAside(!isShownAside)
   }
   return (
@@ -17,9 +17,9 @@ export const AdminLayout = ({ children }: PropsWithChildren) => {
         <meta name="description" content="Sample app dashboard" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Aside isAsideShown={isShownAside} showAside={toggleisShownAside} />
+      <Aside isAsideShown={isShownAside} showAside={toggleShownAside} />
       <div className="wrapper d-flex flex-column min-vh-100 bg-dark">
-        <Header toggleAside={toggleisShownAside} />
+        <Header toggleAside={toggleShownAside} />
         <div className="body flex-grow-1 px-3">
           <Container fluid="lg">
             {children}
@@ -27,7 +27,7 @@ export const AdminLayout = ({ children }: PropsWithChildren) => {
         </div>
         <Footer />
       </div>
-      <AsideOverlay isShownAside={isShownAside} toggleAside={toggleisShownAside} />
+      <AsideOverlay isShownAside={isShownAside} toggleAside={toggleShownAside} />
     </>
   )
 }

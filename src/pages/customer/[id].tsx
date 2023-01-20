@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router'
 import useSWR from 'swr'
 import type { CustomerType, ResponseError } from '@types'
+import Image from 'next/image'
 
 const fetcher = async (url: string) => {
   const res = await fetch(url)
@@ -29,29 +30,28 @@ export default function CustomerPage() {
       <thead>
         <tr>
           <th>Name</th>
-          <th>Height</th>
-          <th>Mass</th>
-          <th>Hair color</th>
-          <th>Skin color</th>
-          <th>Eye color</th>
+          <th>Email</th>
           <th>Gender</th>
+          <th>Credit card type</th>
+          <th>Purchase</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           {isValidating ? (
             <td colSpan={7} align="center">
-              Validating...
+              Fetching, please wait...
             </td>
           ) : (
             <>
-              <td>{data.name}</td>
-              <td>{data.height}</td>
-              <td>{data.mass}</td>
-              <td>{data.hair_color}</td>
-              <td>{data.skin_color}</td>
-              <td>{data.eye_color}</td>
+              <td>
+                <Image src={data.avatar} alt={data.last_name} />
+              </td>
+              <td>{data.first_name} {data.last_name}</td>
+              <td>{data.email}</td>
               <td>{data.gender}</td>
+              <td>{data.credit_card_type}</td>
+              <td>{data.currency_code} {data.purchase}</td>
             </>
           )}
         </tr>

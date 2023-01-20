@@ -10,14 +10,14 @@ import {
   faBug,
   faCalculator,
   faChartPie,
-  faChevronUp, faCode,
+  faChevronUp,
   faDroplet,
   faGauge,
-  faLayerGroup,
   faLocationArrow,
   faPencil,
   faPuzzlePiece,
   faRightToBracket,
+  faPerson,
 } from '@fortawesome/free-solid-svg-icons'
 import React, {
   PropsWithChildren, useContext, useEffect, useState,
@@ -130,18 +130,20 @@ export const AsideNav: React.FC = () => {
   return (
     <ul className="list-unstyled">
       <AsideNavItem icon={faGauge} href="/">
-        Dashboard
+        Home
+      </AsideNavItem>
+      <AsideNavItem icon={faPerson} href="/customers">
+        Customers
         <small className="ms-auto"><Badge bg="info" className="ms-auto">NEW</Badge></small>
       </AsideNavItem>
-      <AsideNavItem icon={faCode} href="/customers">
-        Sample
+      <AsideNavItem icon={faGauge} href="/latest">
+        Latest Trends
         <small className="ms-auto"><Badge bg="danger" className="ms-auto">DEMO</Badge></small>
       </AsideNavItem>
       <AsideNavTitle>Theme</AsideNavTitle>
       <AsideNavItem icon={faDroplet} href="colors.html">Colors</AsideNavItem>
       <AsideNavItem icon={faPencil} href="typography.html">Typography</AsideNavItem>
       <AsideNavTitle>Components</AsideNavTitle>
-
       <AsideNavGroup toggleIcon={faPuzzlePiece} toggleText="Base">
         <AsideNavItem href="base/accordion.html">Accordion</AsideNavItem>
         <AsideNavItem href="base/breadcrumb.html">Breadcrumb</AsideNavItem>
@@ -159,15 +161,12 @@ export const AsideNav: React.FC = () => {
         <AsideNavItem href="base/tabs.html">Tabs</AsideNavItem>
         <AsideNavItem href="base/tooltips.html">Tooltips</AsideNavItem>
       </AsideNavGroup>
-
       <AsideNavGroup toggleIcon={faLocationArrow} toggleText="Buttons">
         <AsideNavItem href="buttons/buttons.html">Buttons</AsideNavItem>
         <AsideNavItem href="buttons/button-group.html">Buttons Group</AsideNavItem>
         <AsideNavItem href="buttons/dropdowns.html">Dropdowns</AsideNavItem>
       </AsideNavGroup>
-
       <AsideNavItem icon={faChartPie} href="charts.html">Charts</AsideNavItem>
-
       <AsideNavGroup toggleIcon={faFileLines} toggleText="Forms">
         <AsideNavItem href="forms/form-control.html">Form Control</AsideNavItem>
         <AsideNavItem href="forms/select.html">Select</AsideNavItem>
@@ -184,7 +183,6 @@ export const AsideNav: React.FC = () => {
         <AsideNavItem href="notifications/modals.html">Modals</AsideNavItem>
         <AsideNavItem href="notifications/toasts.html">Toasts</AsideNavItem>
       </AsideNavGroup>
-
       <AsideNavItem icon={faCalculator} href="widgets.html">
         Widgets
         <small className="ms-auto"><Badge bg="info">NEW</Badge></small>

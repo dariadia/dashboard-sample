@@ -1,8 +1,8 @@
-import { NextApiRequest, NextApiResponse } from 'next'
 import { CustomerType, ResponseError } from '@types'
+import { NextApiRequest, NextApiResponse } from 'next'
 import customers from 'src/data/mock_customers.json'
 
-export default function customerHandler(
+export default function personHandler(
   req: NextApiRequest,
   res: NextApiResponse<CustomerType | ResponseError>
 ) {
