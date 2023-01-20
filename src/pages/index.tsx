@@ -44,14 +44,8 @@ Chart.register(CategoryScale, LinearScale, PointElement, LineElement, BarElement
 
 const getRandomNumber = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1) + min)
 
-const STATUSES = [
-  'success', 'info', 'danger', 'primary', 'warning'
-]
-
-const getRandomStatus = () => STATUSES[getRandomNumber(0, 4)]
-
-const CardGraph: React.FC<{ shownSet: string; switchSet: Dispatch<SetStateAction<string>> }> =
-  ({ shownSet, switchSet }) => <Card className="mb-4 bg-dark card-with-border text-white">
+const CardGraph: React.FC<{ minified?: boolean; shownSet: string; switchSet: Dispatch<SetStateAction<string>> }> =
+  ({ minified, shownSet, switchSet }) => <Card className="mb-4 bg-dark card-with-border text-white">
     <Card.Body>
       <div className="d-flex justify-content-between">
         <div>
@@ -59,7 +53,7 @@ const CardGraph: React.FC<{ shownSet: string; switchSet: Dispatch<SetStateAction
           <div className="small">January - March 2023</div>
         </div>
         <div className="d-none d-md-block">
-          <ButtonGroup aria-label="Graph toolbar" className="mx-3">
+        {!minified && <ButtonGroup aria-label="Graph toolbar" className="mx-3">
             <input
               className="btn-check"
               id="option1"
@@ -93,7 +87,7 @@ const CardGraph: React.FC<{ shownSet: string; switchSet: Dispatch<SetStateAction
               onClick={() => switchSet("three")}
             />
             <label className="btn btn-outline-secondary" htmlFor="option3">Year</label>
-          </ButtonGroup>
+          </ButtonGroup>}
           <Button variant="primary" onClick={() => alert("Downloading the data")}>
             <FontAwesomeIcon icon={faDownload} fixedWidth />
           </Button>
@@ -102,7 +96,7 @@ const CardGraph: React.FC<{ shownSet: string; switchSet: Dispatch<SetStateAction
       {shownSet === "one" ? <GraphSet /> : <GraphSet />}
     </Card.Body>
     <Card.Footer>
-      <div className="row my-2 row-cols-1 row-cols-md-5 text-center">
+      <div className={`row my-2 row-cols-1 row-cols-md-${minified ? 3 : 5} text-center`}>
         <div className="col mb-sm-2 mb-0">
           <div>Purchases</div>
           <div className="fw-semibold">49,503 Customers (55%)</div>
@@ -130,7 +124,7 @@ const CardGraph: React.FC<{ shownSet: string; switchSet: Dispatch<SetStateAction
             now={20}
           />
         </div>
-        <div className="col mb-sm-2 mb-0">
+        {!minified &&  <div className="col mb-sm-2 mb-0">
           <div>New Customers</div>
           <div className="fw-semibold">1,536 Customers (5%)</div>
           <ProgressBar
@@ -138,8 +132,8 @@ const CardGraph: React.FC<{ shownSet: string; switchSet: Dispatch<SetStateAction
             variant="danger"
             now={5}
           />
-        </div>
-        <div className="col mb-sm-2 mb-0">
+        </div>}
+        {!minified && <div className="col mb-sm-2 mb-0">
           <div>Return Rate</div>
           <div className="fw-semibold">40.15%</div>
           <ProgressBar
@@ -147,7 +141,7 @@ const CardGraph: React.FC<{ shownSet: string; switchSet: Dispatch<SetStateAction
             variant="info"
             now={40}
           />
-        </div>
+        </div>}
       </div>
     </Card.Footer>
   </Card>
@@ -238,6 +232,8 @@ const GraphSet: React.FC = () => (<div
 
 const Home: NextPage = () => {
   const [shownSet, switchSet] = useState("one")
+  const [shownSetDemo1, switchSetDemo1] = useState("one")
+  const [shownSetDemo2, switchSetDemo2] = useState("two")
 
   return (<AdminLayout>
     <div className="row">
@@ -704,6 +700,18 @@ const Home: NextPage = () => {
             </div>
           </Card.Body>
         </Card>
+        <Card className="mb-4 bg-dark text-white">
+          <Card.Body>
+            <div className="row">
+              <div className="col-6">
+                <CardGraph shownSet={shownSetDemo1} switchSet={switchSetDemo1} minified />
+              </div>
+              <div className="col-6">
+                <CardGraph shownSet={shownSetDemo2} switchSet={switchSetDemo2} minified />
+              </div>
+            </div>
+          </Card.Body>
+        </Card>
         <Card className="mb-4 bg-dark card-with-border text-white">
           <Card.Header>
             Recent Customers
@@ -734,7 +742,7 @@ const Home: NextPage = () => {
                           alt="user@email.com"
                         />
                         <span
-                          className={`avatar-status bg-${getRandomStatus()} position-absolute d-block bottom-0 end-0 rounded-circle border border-white`}
+                          className={`avatar-status bg-${DATA[index].bg} position-absolute d-block bottom-0 end-0 rounded-circle border border-white`}
                         />
                       </div>
                     </td>
@@ -747,10 +755,10 @@ const Home: NextPage = () => {
                     <td>
                       <div className="clearfix mb-2">
                         <div className="float-start">
-                          <div className="fw-semibold">Latest investment: {getRandomNumber(100, 1000)} ({DATA[index].currency_code})</div>
+                          <div className="fw-semibold">Latest investment: {DATA[index].invested.toLocaleString()} ({DATA[index].currency_code})</div>
                         </div>
                       </div>
-                      <ProgressBar className="progress-thin" variant={getRandomStatus()} now={getRandomNumber(10, 100)} />
+                      <ProgressBar className="progress-thin" variant={DATA[index].bg} now={getRandomNumber(10, 100)} />
                     </td>
                     <td className="text-center">
                       {DATA[index].company_name}

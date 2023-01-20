@@ -8,9 +8,9 @@ export const PERSONS = [
 ]
 
 export const DATA = [
-{"full_name":"Lynelle Leathwood","email":"lleathwood1@latimes.com","ip_address":"169.89.39.171","company_name":"Eayo","registered":"24.04.2022","card_type":"visa","industry":"Real Estate Investment Trusts","currency_code":"CNY"},
-{"full_name":"Terrell Masseo","email":"tmasseo2@kickstarter.com","ip_address":"227.204.35.254","company_name":"Aimbu","registered":"14.12.2022","card_type":"mastercard","industry":"n/a", "currency_code":"EUR"},
-{"full_name":"Agace Hagart","email":"ahagart3@usgs.gov","ip_address":"121.109.149.37","company_name":"Digitube","registered":"02.03.2022","card_type":"amex","industry":"Major Pharmaceuticals", "currency_code":"THB"},
-{"full_name":"Katya Cassells","email":"kcassells4@tamu.edu","ip_address":"151.209.41.179","company_name":"Gevee","registered":"01.09.2022","card_type":"diners-club-international","industry":"Industrial Machinery/Components", "currency_code":"UAH"},
-{"full_name":"Ferrell Sherrin","email":"fsherrin6@nifty.com","ip_address":"120.3.217.82","company_name":"Tagopia","registered":"19.01.2023","card_type":"mastercard","industry":"Oil & Gas Production", "currency_code":"CAD"},
-{"full_name":"Mahalia Longbottom","email":"mlongbottom9@flickr.com","ip_address":"63.246.13.57","company_name":"Innotype","registered":"23.05.2022","card_type":"visa","industry":"Trucking Freight/Courier Services", "currency_code":"IDR"}]
+{"full_name":"Lynelle Leathwood","email":"lleathwood1@latimes.com","ip_address":"169.89.39.171","company_name":"Eayo","registered":"24.04.2022","card_type":"visa","industry":"Real Estate Investment Trusts","currency_code":"CNY", bg: 'info', invested: 4256},
+{"full_name":"Terrell Masseo","email":"tmasseo2@kickstarter.com","ip_address":"227.204.35.254","company_name":"Aimbu","registered":"14.12.2022","card_type":"mastercard","industry":"n/a", "currency_code":"EUR", bg: 'warning', invested: 52436},
+{"full_name":"Agace Hagart","email":"ahagart3@usgs.gov","ip_address":"121.109.149.37","company_name":"Digitube","registered":"02.03.2022","card_type":"amex","industry":"Major Pharmaceuticals", "currency_code":"THB", bg: 'danger', invested: 65626},
+{"full_name":"Katya Cassells","email":"kcassells4@tamu.edu","ip_address":"151.209.41.179","company_name":"Gevee","registered":"01.09.2022","card_type":"diners-club-international","industry":"Industrial Machinery/Components", "currency_code":"UAH", bg: 'success', invested: 42},
+{"full_name":"Ferrell Sherrin","email":"fsherrin6@nifty.com","ip_address":"120.3.217.82","company_name":"Tagopia","registered":"19.01.2023","card_type":"mastercard","industry":"Oil & Gas Production", "currency_code":"CAD", bg: 'info', invested: 6325},
+{"full_name":"Mahalia Longbottom","email":"mlongbottom9@flickr.com","ip_address":"63.246.13.57","company_name":"Innotype","registered":"23.05.2022","card_type":"visa","industry":"Trucking Freight/Courier Services", "currency_code":"IDR", bg: 'primary', invested: 832462}]

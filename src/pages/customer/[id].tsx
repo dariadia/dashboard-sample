@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router'
 import useSWR from 'swr'
 import type { CustomerType, ResponseError } from '@types'
+import Image from 'next/image'
 
 const fetcher = async (url: string) => {
   const res = await fetch(url)
@@ -43,7 +44,9 @@ export default function CustomerPage() {
             </td>
           ) : (
             <>
-              <td><img src={data.avatar} alt={data.last_name} /></td>
+              <td>
+                <Image src={data.avatar} alt={data.last_name} />
+              </td>
               <td>{data.first_name} {data.last_name}</td>
               <td>{data.email}</td>
               <td>{data.gender}</td>
