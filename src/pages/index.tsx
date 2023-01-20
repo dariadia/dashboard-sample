@@ -130,7 +130,7 @@ const GraphSet: React.FC = () => (<div
 const Home: NextPage = () => {
   const [shownSet, switchSet] = useState("one")
 
-  return (  <AdminLayout>
+  return (<AdminLayout>
     <div className="row">
       <div className="col-sm-6 col-lg-3">
         <Card bg="primary" text="white" className="mb-4">
@@ -562,26 +562,34 @@ const Home: NextPage = () => {
       <div className="col-md-12">
         <Card className="mb-4 bg-complementary text-white">
           <Card.Header>
-            Traffic &amp; Sales
+            Sessions &amp; Sales
           </Card.Header>
           <Card.Body>
             <div className="row">
-              <div className="col-sm-6">
+              <div className="col-9">
                 <div className="row">
-                  <div className="col-6">
-                    <div className="border-start border-4 border-info px-3 mb-3">
+                  <div className="col-3">
+                    <div className="border border-2 border-info px-3 mb-3">
                       <small>
-                        New Clients
+                        New
                       </small>
-                      <div className="fs-5 fw-semibold">9,123</div>
+                      <div className="fs-5 fw-semibold">3,123</div>
                     </div>
                   </div>
-                  <div className="col-6">
-                    <div className="border-start border-4 border-danger px-3 mb-3">
+                  <div className="col-3">
+                    <div className="border border-2 border-success px-3 mb-3">
                       <small>
-                        Recurring Clients
+                        Recurring
                       </small>
-                      <div className="fs-5 fw-semibold">22,643</div>
+                      <div className="fs-5 fw-semibold">19,543</div>
+                    </div>
+                  </div>
+                  <div className="col-3">
+                    <div className="border border-2 border-danger px-3 mb-3">
+                      <small>
+                        Cancelled
+                      </small>
+                      <div className="fs-5 fw-semibold">1,464</div>
                     </div>
                   </div>
                 </div>
@@ -589,270 +597,110 @@ const Home: NextPage = () => {
                 <div className="row mb-4 align-items-center">
                   <div className="col-3">
                     <span className="small">
-                      Monday
+                      Legal Services
                     </span>
                   </div>
                   <div className="col">
                     <ProgressBar
                       className="progress-thin mb-1"
-                      variant="primary"
+                      variant="info"
                       now={34}
                     />
                     <ProgressBar
-                      className="progress-thin"
-                      variant="danger"
+                      className="progress-thin mb-1"
+                      variant="success"
                       now={78}
                     />
-                  </div>
-                </div>
-
-                <div className="row mb-4 align-items-center">
-                  <div className="col-3">
-                    <span className="small">
-                      Tuesday
-                    </span>
-                  </div>
-                  <div className="col">
                     <ProgressBar
                       className="progress-thin mb-1"
-                      variant="primary"
-                      now={56}
-                    />
-                    <ProgressBar
-                      className="progress-thin"
                       variant="danger"
-                      now={94}
+                      now={18}
                     />
                   </div>
                 </div>
-
                 <div className="row mb-4 align-items-center">
                   <div className="col-3">
                     <span className="small">
-                      Wednesday
+                      Insurance Services
                     </span>
                   </div>
                   <div className="col">
                     <ProgressBar
                       className="progress-thin mb-1"
-                      variant="primary"
+                      variant="info"
+                      now={36}
+                    />
+                    <ProgressBar
+                      className="progress-thin mb-1"
+                      variant="success"
+                      now={44}
+                    />
+                    <ProgressBar
+                      className="progress-thin mb-1"
+                      variant="danger"
+                      now={18}
+                    />
+                  </div>
+                </div>
+                <div className="row mb-4 align-items-center">
+                  <div className="col-3">
+                    <span className="small">
+                      Damages Paid
+                    </span>
+                  </div>
+                  <div className="col">
+                    <ProgressBar
+                      className="progress-thin mb-1"
+                      variant="info"
                       now={12}
                     />
                     <ProgressBar
-                      className="progress-thin"
+                      className="progress-thin mb-1"
+                      variant="success"
+                      now={54}
+                    />
+                    <ProgressBar
+                      className="progress-thin mb-1"
                       variant="danger"
-                      now={67}
+                      now={12}
                     />
                   </div>
                 </div>
-
                 <div className="row mb-4 align-items-center">
                   <div className="col-3">
                     <span className="small">
-                      Thursday
+                      Other Services
                     </span>
                   </div>
                   <div className="col">
                     <ProgressBar
                       className="progress-thin mb-1"
-                      variant="primary"
-                      now={43}
-                    />
-                    <ProgressBar
-                      className="progress-thin"
-                      variant="danger"
-                      now={91}
-                    />
-                  </div>
-                </div>
-
-                <div className="row mb-4 align-items-center">
-                  <div className="col-3">
-                    <span className="small">
-                      Friday
-                    </span>
-                  </div>
-                  <div className="col">
-                    <ProgressBar
-                      className="progress-thin mb-1"
-                      variant="primary"
+                      variant="info"
                       now={22}
                     />
                     <ProgressBar
-                      className="progress-thin"
-                      variant="danger"
-                      now={73}
-                    />
-                  </div>
-                </div>
-
-                <div className="row mb-4 align-items-center">
-                  <div className="col-3">
-                    <span className="small">
-                      Saturday
-                    </span>
-                  </div>
-                  <div className="col">
-                    <ProgressBar
                       className="progress-thin mb-1"
-                      variant="primary"
+                      variant="success"
                       now={53}
                     />
                     <ProgressBar
-                      className="progress-thin"
-                      variant="danger"
-                      now={82}
-                    />
-                  </div>
-                </div>
-
-                <div className="row mb-4 align-items-center">
-                  <div className="col-3">
-                    <span className="small">
-                      Sunday
-                    </span>
-                  </div>
-                  <div className="col">
-                    <ProgressBar
                       className="progress-thin mb-1"
-                      variant="primary"
-                      now={9}
-                    />
-                    <ProgressBar
-                      className="progress-thin"
                       variant="danger"
-                      now={69}
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-sm-6">
-                <div className="row">
-                  <div className="col-6">
-                    <div className="border-start border-4 border-warning px-3 mb-3">
-                      <small >
-                        Pageviews
-                      </small>
-                      <div className="fs-5 fw-semibold">78,623</div>
-                    </div>
-                  </div>
-
-                  <div className="col-6">
-                    <div className="border-start border-4 border-success px-3 mb-3">
-                      <small >
-                        Organic
-                      </small>
-                      <div className="fs-5 fw-semibold">49,123</div>
-                    </div>
-                  </div>
-
-                </div>
-
-                <hr className="mt-0" />
-
-                <div className="mb-5">
-                  <div className="mb-3">
-                    <div className="d-flex mb-1">
-                      <div>
-                        <FontAwesomeIcon className="me-2" icon={faMars} fixedWidth />
-                        Male
-                      </div>
-                      <div className="ms-auto fw-semibold">43%</div>
-                    </div>
-                    <ProgressBar
-                      className="progress-thin"
-                      variant="warning"
                       now={43}
                     />
                   </div>
-
-                  <div className="mb-3">
-                    <div className="d-flex mb-1">
-                      <div>
-                        <FontAwesomeIcon className="me-2" icon={faVenus} fixedWidth />
-                        Female
-                      </div>
-                      <div className="ms-auto fw-semibold">37%</div>
-                    </div>
-                    <ProgressBar
-                      className="progress-thin"
-                      variant="warning"
-                      now={37}
-                    />
-                  </div>
-                </div>
-
-                <div className="mb-3">
-                  <div className="d-flex mb-1">
-                    <div>
-                      <FontAwesomeIcon className="me-2" icon={faSearch} fixedWidth />
-                      Organic Search
-                    </div>
-                    <div className="ms-auto fw-semibold me-2">191.235</div>
-                    <div className="small">(56%)</div>
-                  </div>
-                  <ProgressBar
-                    className="progress-thin"
-                    variant="success"
-                    now={56}
-                  />
-                </div>
-
-                <div className="mb-3">
-                  <div className="d-flex mb-1">
-                    <div>
-                      <FontAwesomeIcon className="me-2" icon={faFacebookF} fixedWidth />
-                      Facebook
-                    </div>
-                    <div className="ms-auto fw-semibold me-2">51.223</div>
-                    <div className="small">(15%)</div>
-                  </div>
-                  <ProgressBar
-                    className="progress-thin"
-                    variant="success"
-                    now={15}
-                  />
-                </div>
-
-                <div className="mb-3">
-                  <div className="d-flex mb-1">
-                    <div>
-                      <FontAwesomeIcon className="me-2" icon={faTwitter} fixedWidth />
-                      Twitter
-                    </div>
-                    <div className="ms-auto fw-semibold me-2">37.564</div>
-                    <div className="small">(11%)</div>
-                  </div>
-                  <ProgressBar
-                    className="progress-thin"
-                    variant="success"
-                    now={11}
-                  />
-                </div>
-
-                <div className="mb-3">
-                  <div className="d-flex mb-1">
-                    <div>
-                      <FontAwesomeIcon className="me-2" icon={faLinkedinIn} fixedWidth />
-                      LinkedIn
-                    </div>
-                    <div className="ms-auto fw-semibold me-2">27.319</div>
-                    <div className="small">(8%)</div>
-                  </div>
-                  <ProgressBar
-                    className="progress-thin"
-                    variant="success"
-                    now={8}
-                  />
                 </div>
               </div>
             </div>
-
-            <br />
-
+          </Card.Body>
+        </Card>
+        <Card className="mb-4 bg-dark card-with-border text-white">
+          <Card.Header>
+            Recent Customers
+          </Card.Header>
+          <Card.Body>
             <div className="table-responsive">
-              <table className="table border mb-0">
+              <table className="table table-dark border mb-0">
                 <thead className="table-dark fw-semibold">
                   <tr className="align-middle">
                     <th className="text-center">
@@ -870,7 +718,7 @@ const Home: NextPage = () => {
                     <td className="text-center">
                       <div className="avatar avatar-md d-inline-flex position-relative">
                         <Image
-                                  fill
+                          fill
                           className="rounded-circle"
                           src={PERSONS[1]}
                           alt="user@email.com"
@@ -882,7 +730,7 @@ const Home: NextPage = () => {
                     </td>
                     <td>
                       <div>Yiorgos Avraamu</div>
-                      <div className="small text-black-50">
+                      <div className="small">
                         <span>New</span>
                         {' '}
                         | Registered: Jan 1, 2020
@@ -905,7 +753,7 @@ const Home: NextPage = () => {
                       <FontAwesomeIcon icon={faCcAmex} size="lg" fixedWidth />
                     </td>
                     <td>
-                      <div className="small text-black-50">Last login</div>
+                      <div className="small">Last login</div>
                       <div className="fw-semibold">10 sec ago</div>
                     </td>
                     <td>
@@ -936,7 +784,7 @@ const Home: NextPage = () => {
                     <td className="text-center">
                       <div className="avatar avatar-md d-inline-flex position-relative">
                         <Image
-                                   fill
+                          fill
                           className="rounded-circle"
                           src={PERSONS[0]}
                           alt="user@email.com"
@@ -948,7 +796,7 @@ const Home: NextPage = () => {
                     </td>
                     <td>
                       <div>Avram Tarasios</div>
-                      <div className="small text-black-50">
+                      <div className="small">
                         <span>Recurring</span>
                         {' '}
                         | Registered: Jan 1, 2020
@@ -971,7 +819,7 @@ const Home: NextPage = () => {
                       <FontAwesomeIcon icon={faCcVisa} size="lg" fixedWidth />
                     </td>
                     <td>
-                      <div className="small text-black-50">Last login</div>
+                      <div className="small">Last login</div>
                       <div className="fw-semibold">5 minutes ago</div>
                     </td>
                     <td>
@@ -1013,7 +861,7 @@ const Home: NextPage = () => {
                     </td>
                     <td>
                       <div>Quintin Ed</div>
-                      <div className="small text-black-50">
+                      <div className="small">
                         <span>New</span>
                         {' '}
                         | Registered: Jan 1, 2020
@@ -1036,7 +884,7 @@ const Home: NextPage = () => {
                       <FontAwesomeIcon icon={faCcStripe} size="lg" fixedWidth />
                     </td>
                     <td>
-                      <div className="small text-black-50">Last login</div>
+                      <div className="small">Last login</div>
                       <div className="fw-semibold">1 hour ago</div>
                     </td>
                     <td>
@@ -1067,7 +915,7 @@ const Home: NextPage = () => {
                     <td className="text-center">
                       <div className="avatar avatar-md d-inline-flex position-relative">
                         <Image
-                                     fill
+                          fill
                           className="rounded-circle"
                           src={PERSONS[4]}
                           alt="user@email.com"
@@ -1079,7 +927,7 @@ const Home: NextPage = () => {
                     </td>
                     <td>
                       <div>Enéas Kwadwo</div>
-                      <div className="small text-black-50">
+                      <div className="small">
                         <span>New</span>
                         {' '}
                         | Registered: Jan 1, 2020
@@ -1102,7 +950,7 @@ const Home: NextPage = () => {
                       <FontAwesomeIcon icon={faCcPaypal} size="lg" fixedWidth />
                     </td>
                     <td>
-                      <div className="small text-black-50">Last login</div>
+                      <div className="small">Last login</div>
                       <div className="fw-semibold">Last month</div>
                     </td>
                     <td>
@@ -1133,7 +981,7 @@ const Home: NextPage = () => {
                     <td className="text-center">
                       <div className="avatar avatar-md d-inline-flex position-relative">
                         <Image
-                                       fill
+                          fill
                           className="rounded-circle"
                           src={PERSONS[3]}
                           alt="user@email.com"
@@ -1145,7 +993,7 @@ const Home: NextPage = () => {
                     </td>
                     <td>
                       <div>Agapetus Tadeáš</div>
-                      <div className="small text-black-50">
+                      <div className="small">
                         <span>New</span>
                         {' '}
                         | Registered: Jan 1, 2020
@@ -1168,7 +1016,7 @@ const Home: NextPage = () => {
                       <FontAwesomeIcon icon={faCcApplePay} size="lg" fixedWidth />
                     </td>
                     <td>
-                      <div className="small text-black-50">Last login</div>
+                      <div className="small">Last login</div>
                       <div className="fw-semibold">Last week</div>
                     </td>
                     <td>
@@ -1199,7 +1047,7 @@ const Home: NextPage = () => {
                     <td className="text-center">
                       <div className="avatar avatar-md d-inline-flex position-relative">
                         <Image
-                                      fill
+                          fill
                           className="rounded-circle"
                           src={PERSONS[5]}
                           alt="user@email.com"
@@ -1211,7 +1059,7 @@ const Home: NextPage = () => {
                     </td>
                     <td>
                       <div>Friderik Dávid</div>
-                      <div className="small text-black-50">
+                      <div className="small">
                         <span>New</span>
                         {' '}
                         | Registered: Jan 1, 2020
@@ -1234,7 +1082,7 @@ const Home: NextPage = () => {
                       <FontAwesomeIcon icon={faCcAmex} size="lg" fixedWidth />
                     </td>
                     <td>
-                      <div className="small text-black-50">Last login</div>
+                      <div className="small">Last login</div>
                       <div className="fw-semibold">Yesterday</div>
                     </td>
                     <td>
@@ -1263,8 +1111,7 @@ const Home: NextPage = () => {
                   </tr>
                 </tbody>
               </table>
-            </div>
-          </Card.Body>
+            </div></Card.Body>
         </Card>
       </div>
     </div>

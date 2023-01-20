@@ -43,6 +43,7 @@ export default function CustomerPage() {
             </td>
           ) : (
             <>
+              <td><img src={data.avatar} alt={data.last_name} /></td>
               <td>{data.first_name} {data.last_name}</td>
               <td>{data.email}</td>
               <td>{data.gender}</td>
