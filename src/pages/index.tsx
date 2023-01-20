@@ -7,10 +7,7 @@ import {
   faArrowUp,
   faDownload,
   faEllipsisVertical,
-  faMars,
-  faSearch,
   faUsers,
-  faVenus,
 } from '@fortawesome/free-solid-svg-icons'
 import {
   Button, ButtonGroup, Card, Dropdown, ProgressBar,
@@ -28,16 +25,20 @@ import {
 } from 'chart.js'
 import {
   faCcAmex,
-  faCcApplePay,
-  faCcPaypal,
-  faCcStripe,
   faCcVisa,
-  faFacebookF,
-  faLinkedinIn,
-  faTwitter,
+  faCcMastercard,
+  faCcDinersClub,
 } from '@fortawesome/free-brands-svg-icons'
 import React, { useState } from 'react'
 import { DATA, PERSONS } from 'src/data/persons'
+import { IconProp } from '@fortawesome/fontawesome-svg-core'
+
+const CardIconByType = {
+  visa: faCcVisa,
+  amex: faCcAmex,
+  mastercard: faCcMastercard,
+  'diners-club-international': faCcDinersClub,
+}
 
 Chart.register(CategoryScale, LinearScale, PointElement, LineElement, BarElement, Tooltip, Filler)
 
@@ -754,7 +755,10 @@ const Home: NextPage = () => {
                      <small className="text-white-50">| {DATA[index].industry}</small>
                     </td>
                     <td className="text-center">
-                      <FontAwesomeIcon icon={faCcAmex} size="lg" fixedWidth />
+                      <FontAwesomeIcon 
+                        icon={CardIconByType[DATA[index].card_type as keyof typeof CardIconByType] as IconProp} 
+                        size="lg" fixedWidth 
+                      />
                     </td>
                     <td>
                       <Dropdown align="end">
@@ -766,7 +770,6 @@ const Home: NextPage = () => {
                         >
                           <FontAwesomeIcon fixedWidth icon={faEllipsisVertical} />
                         </Dropdown.Toggle>
-
                         <Dropdown.Menu>
                           <Dropdown.Item href="#/action-1">Info</Dropdown.Item>
                           <Dropdown.Item href="#/action-2">Edit</Dropdown.Item>
