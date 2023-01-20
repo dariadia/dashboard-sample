@@ -29,7 +29,7 @@ import {
   faCcMastercard,
   faCcDinersClub,
 } from '@fortawesome/free-brands-svg-icons'
-import React, { useState } from 'react'
+import React, { Dispatch, SetStateAction, useState } from 'react'
 import { DATA, PERSONS } from 'src/data/persons'
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
 
@@ -49,6 +49,108 @@ const STATUSES = [
 ]
 
 const getRandomStatus = () => STATUSES[getRandomNumber(0, 4)]
+
+const CardGraph: React.FC<{ shownSet: string; switchSet: Dispatch<SetStateAction<string>> }> =
+  ({ shownSet, switchSet }) => <Card className="mb-4 bg-dark card-with-border text-white">
+    <Card.Body>
+      <div className="d-flex justify-content-between">
+        <div>
+          <h4 className="mb-0">Customer Sessions</h4>
+          <div className="small">January - March 2023</div>
+        </div>
+        <div className="d-none d-md-block">
+          <ButtonGroup aria-label="Graph toolbar" className="mx-3">
+            <input
+              className="btn-check"
+              id="option1"
+              type="radio"
+              name="options"
+              autoComplete="off"
+              onClick={() => switchSet("two")}
+            />
+            <label className="btn btn-outline-secondary" htmlFor="option1">Day</label>
+            <input
+              className="btn-check"
+              id="option2"
+              type="radio"
+              name="options"
+              autoComplete="off"
+              defaultChecked
+              onClick={() => switchSet("one")}
+            />
+            <label
+              className="btn btn-outline-secondary"
+              htmlFor="option2"
+            >
+              Month
+            </label>
+            <input
+              className="btn-check"
+              id="option3"
+              type="radio"
+              name="options"
+              autoComplete="off"
+              onClick={() => switchSet("three")}
+            />
+            <label className="btn btn-outline-secondary" htmlFor="option3">Year</label>
+          </ButtonGroup>
+          <Button variant="primary" onClick={() => alert("Downloading the data")}>
+            <FontAwesomeIcon icon={faDownload} fixedWidth />
+          </Button>
+        </div>
+      </div>
+      {shownSet === "one" ? <GraphSet /> : <GraphSet />}
+    </Card.Body>
+    <Card.Footer>
+      <div className="row my-2 row-cols-1 row-cols-md-5 text-center">
+        <div className="col mb-sm-2 mb-0">
+          <div>Purchases</div>
+          <div className="fw-semibold">49,503 Customers (55%)</div>
+          <ProgressBar
+            className="progress-thin mt-2"
+            variant="success"
+            now={55}
+          />
+        </div>
+        <div className="col mb-sm-2 mb-0">
+          <div>Unique</div>
+          <div className="fw-semibold">34,946 Sessions (38%)</div>
+          <ProgressBar
+            className="progress-thin mt-2"
+            variant="info"
+            now={38}
+          />
+        </div>
+        <div className="col mb-sm-2 mb-0">
+          <div>Product views</div>
+          <div className="fw-semibold">48.756 Views (20%)</div>
+          <ProgressBar
+            className="progress-thin mt-2"
+            variant="warning"
+            now={20}
+          />
+        </div>
+        <div className="col mb-sm-2 mb-0">
+          <div>New Customers</div>
+          <div className="fw-semibold">1,536 Customers (5%)</div>
+          <ProgressBar
+            className="progress-thin mt-2"
+            variant="danger"
+            now={5}
+          />
+        </div>
+        <div className="col mb-sm-2 mb-0">
+          <div>Return Rate</div>
+          <div className="fw-semibold">40.15%</div>
+          <ProgressBar
+            className="progress-thin mt-2"
+            variant="info"
+            now={40}
+          />
+        </div>
+      </div>
+    </Card.Footer>
+  </Card>
 
 const GraphSet: React.FC = () => (<div
   style={{
@@ -465,106 +567,7 @@ const Home: NextPage = () => {
         </Card>
       </div>
     </div>
-    <Card className="mb-4 bg-dark card-with-border text-white">
-      <Card.Body>
-        <div className="d-flex justify-content-between">
-          <div>
-            <h4 className="mb-0">Customer Sessions</h4>
-            <div className="small">January - March 2023</div>
-          </div>
-          <div className="d-none d-md-block">
-            <ButtonGroup aria-label="Graph toolbar" className="mx-3">
-              <input
-                className="btn-check"
-                id="option1"
-                type="radio"
-                name="options"
-                autoComplete="off"
-                onClick={() => switchSet("two")}
-              />
-              <label className="btn btn-outline-secondary" htmlFor="option1">Day</label>
-              <input
-                className="btn-check"
-                id="option2"
-                type="radio"
-                name="options"
-                autoComplete="off"
-                defaultChecked
-                onClick={() => switchSet("one")}
-              />
-              <label
-                className="btn btn-outline-secondary"
-                htmlFor="option2"
-              >
-                Month
-              </label>
-              <input
-                className="btn-check"
-                id="option3"
-                type="radio"
-                name="options"
-                autoComplete="off"
-                onClick={() => switchSet("three")}
-              />
-              <label className="btn btn-outline-secondary" htmlFor="option3">Year</label>
-            </ButtonGroup>
-            <Button variant="primary" onClick={() => alert("Downloading the data")}>
-              <FontAwesomeIcon icon={faDownload} fixedWidth />
-            </Button>
-          </div>
-        </div>
-        {shownSet === "one" ? <GraphSet /> : <GraphSet />}
-      </Card.Body>
-      <Card.Footer>
-        <div className="row my-2 row-cols-1 row-cols-md-5 text-center">
-          <div className="col mb-sm-2 mb-0">
-            <div>Purchases</div>
-            <div className="fw-semibold">49,503 Customers (55%)</div>
-            <ProgressBar
-              className="progress-thin mt-2"
-              variant="success"
-              now={55}
-            />
-          </div>
-          <div className="col mb-sm-2 mb-0">
-            <div>Unique</div>
-            <div className="fw-semibold">34,946 Sessions (38%)</div>
-            <ProgressBar
-              className="progress-thin mt-2"
-              variant="info"
-              now={38}
-            />
-          </div>
-          <div className="col mb-sm-2 mb-0">
-            <div>Product views</div>
-            <div className="fw-semibold">48.756 Views (20%)</div>
-            <ProgressBar
-              className="progress-thin mt-2"
-              variant="warning"
-              now={20}
-            />
-          </div>
-          <div className="col mb-sm-2 mb-0">
-            <div>New Customers</div>
-            <div className="fw-semibold">1,536 Customers (5%)</div>
-            <ProgressBar
-              className="progress-thin mt-2"
-              variant="danger"
-              now={5}
-            />
-          </div>
-          <div className="col mb-sm-2 mb-0">
-            <div>Return Rate</div>
-            <div className="fw-semibold">40.15%</div>
-            <ProgressBar
-              className="progress-thin mt-2"
-              variant="info"
-              now={40}
-            />
-          </div>
-        </div>
-      </Card.Footer>
-    </Card>
+    <CardGraph shownSet={shownSet} switchSet={switchSet} />
     <div className="row">
       <div className="col-md-12">
         <Card className="mb-4 bg-complementary text-white">
@@ -752,12 +755,12 @@ const Home: NextPage = () => {
                     <td className="text-center">
                       {DATA[index].company_name}
                       <br />
-                     <small className="text-white-50">| {DATA[index].industry}</small>
+                      <small className="text-white-50">| {DATA[index].industry}</small>
                     </td>
                     <td className="text-center">
-                      <FontAwesomeIcon 
-                        icon={CardIconByType[DATA[index].card_type as keyof typeof CardIconByType] as IconProp} 
-                        size="lg" fixedWidth 
+                      <FontAwesomeIcon
+                        icon={CardIconByType[DATA[index].card_type as keyof typeof CardIconByType] as IconProp}
+                        size="lg" fixedWidth
                       />
                     </td>
                     <td>
