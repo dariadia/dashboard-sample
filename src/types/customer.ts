@@ -1,13 +1,16 @@
 export type CustomerType = {
-  id: string,
-  first_name: string,
-  last_name: string,
+  guid: string,
+  full_name: string,
   email: string,
-  gender: string,
   avatar: string,
-  credit_card_type: string,
-  purchase: string,
+  card_type: string,
+  purchased_total: string,
   currency_code: string
+  company_name: string
+  registered: string
+  industry: string
+  graph_hex: string
+  bar_progress: number
 }
 
 

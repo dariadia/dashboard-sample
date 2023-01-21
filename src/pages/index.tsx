@@ -33,7 +33,7 @@ import React, { Dispatch, SetStateAction, useState } from 'react'
 import { DATA, PERSONS } from 'src/data/persons'
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
 
-const CardIconByType = {
+export const CardIconByType = {
   visa: faCcVisa,
   amex: faCcAmex,
   mastercard: faCcMastercard,
@@ -260,11 +260,10 @@ const Home: NextPage = () => {
               >
                 <FontAwesomeIcon fixedWidth icon={faEllipsisVertical} />
               </Dropdown.Toggle>
-
               <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                <Dropdown.Item onClick={() => alert("This is action 1")}>Action</Dropdown.Item>
+                <Dropdown.Item onClick={() => alert("This is action 2")}>Another action</Dropdown.Item>
+                <Dropdown.Item onClick={() => alert("This is action 3")}>Something else</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
           </Card.Body>
@@ -350,9 +349,9 @@ const Home: NextPage = () => {
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                <Dropdown.Item onClick={() => alert("This is action 1")}>Action</Dropdown.Item>
+                <Dropdown.Item onClick={() => alert("This is action 2")}>Another action</Dropdown.Item>
+                <Dropdown.Item onClick={() => alert("This is action 3")}>Something else</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
           </Card.Body>
@@ -435,11 +434,10 @@ const Home: NextPage = () => {
               >
                 <FontAwesomeIcon fixedWidth icon={faEllipsisVertical} />
               </Dropdown.Toggle>
-
               <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                <Dropdown.Item onClick={() => alert("This is action 1")}>Action</Dropdown.Item>
+                <Dropdown.Item onClick={() => alert("This is action 2")}>Another action</Dropdown.Item>
+                <Dropdown.Item onClick={() => alert("This is action 3")}>Something else</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
           </Card.Body>
@@ -511,9 +509,9 @@ const Home: NextPage = () => {
                 <FontAwesomeIcon fixedWidth icon={faEllipsisVertical} />
               </Dropdown.Toggle>
               <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                <Dropdown.Item onClick={() => alert("This is action 1")}>Action</Dropdown.Item>
+                <Dropdown.Item onClick={() => alert("This is action 2")}>Another action</Dropdown.Item>
+                <Dropdown.Item onClick={() => alert("This is action 3")}>Something else</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
           </Card.Body>
@@ -782,11 +780,11 @@ const Home: NextPage = () => {
                           <FontAwesomeIcon fixedWidth icon={faEllipsisVertical} />
                         </Dropdown.Toggle>
                         <Dropdown.Menu>
-                          <Dropdown.Item href="#/action-1">Info</Dropdown.Item>
-                          <Dropdown.Item href="#/action-2">Edit</Dropdown.Item>
+                          <Dropdown.Item onClick={() => alert("This is action 1")}>Info</Dropdown.Item>
+                          <Dropdown.Item onClick={() => alert("This is action 2")}>Edit</Dropdown.Item>
                           <Dropdown.Item
                             className="text-danger"
-                            href="#/action-3"
+                            onClick={() => alert("This is action 3")}
                           >
                             Delete
                           </Dropdown.Item>

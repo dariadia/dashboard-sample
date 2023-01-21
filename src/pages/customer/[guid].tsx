@@ -31,7 +31,6 @@ export default function CustomerPage() {
         <tr>
           <th>Name</th>
           <th>Email</th>
-          <th>Gender</th>
           <th>Credit card type</th>
           <th>Purchase</th>
         </tr>
@@ -45,13 +44,12 @@ export default function CustomerPage() {
           ) : (
             <>
               <td>
-                <Image src={data.avatar} alt={data.last_name} />
+                <Image src={data.avatar} alt={data.full_name} />
               </td>
-              <td>{data.first_name} {data.last_name}</td>
+              <td>{data.full_name}</td>
               <td>{data.email}</td>
-              <td>{data.gender}</td>
-              <td>{data.credit_card_type}</td>
-              <td>{data.currency_code} {data.purchase}</td>
+              <td>{data.card_type}</td>
+              <td>{data.currency_code} {data.purchased_total}</td>
             </>
           )}
         </tr>

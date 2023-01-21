@@ -7,10 +7,10 @@ export default function personHandler(
   res: NextApiResponse<CustomerType | ResponseError>
 ) {
   const { query } = req
-  const { id } = query
-  const customer = customers.find((p) => p.id === id)
+  const { guid } = query
+  const customer = customers.find((p) => p.guid === guid)
 
   return customer
     ? res.status(200).json(customer)
-    : res.status(404).json({ message: `Customer with id: ${id} not found.` })
+    : res.status(404).json({ message: `Customer with id: ${guid} not found.` })
 }
