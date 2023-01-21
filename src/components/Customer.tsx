@@ -27,12 +27,12 @@ export const Customer: React.FC<CustomerType> = ({ guid, full_name, avatar, comp
       <div className="avatar avatar-md d-inline-flex position-relative">
         <Image
           fill
-          className="rounded-circle"
+          className="rounded-circle border border-white"
           src={avatar}
           alt={full_name}
         />
         <span
-          className="position-absolute d-block bottom-0 end-0 rounded-circle border border-white"
+          className="bottom-0 end-0 rounded-circle"
         />
       </div>
     </td>
@@ -48,7 +48,7 @@ export const Customer: React.FC<CustomerType> = ({ guid, full_name, avatar, comp
           <div className="fw-semibold">Latest investment: {purchased_total.toLocaleString()} ({currency_code})</div>
         </div>
       </div>
-      <ProgressBar className="progress-thin" style={{ backgroundColor: graph_hex }} now={bar_progress} />
+      <ProgressBar className="progress-thin" style={{ backgroundColor: graph_hex }} now={bar_progress} animated />
     </td>
     <td className="text-center">
       {company_name}
