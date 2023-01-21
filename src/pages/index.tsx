@@ -28,6 +28,10 @@ import {
   faCcVisa,
   faCcMastercard,
   faCcDinersClub,
+  faCcJcb,
+  faAlipay,
+  faCcApplePay,
+  faSwift,
 } from '@fortawesome/free-brands-svg-icons'
 import React, { Dispatch, SetStateAction, useState } from 'react'
 import { DATA, PERSONS } from 'src/data/persons'
@@ -38,6 +42,12 @@ export const CardIconByType = {
   amex: faCcAmex,
   mastercard: faCcMastercard,
   'diners-club-international': faCcDinersClub,
+  'diners-club-enroute': faCcDinersClub,
+  jcb: faCcJcb,
+  'china-unionpay': faAlipay,
+  americanexpress: faCcAmex,
+  solo: faCcApplePay,
+  switch: faSwift
 }
 
 Chart.register(CategoryScale, LinearScale, PointElement, LineElement, BarElement, Tooltip, Filler)
