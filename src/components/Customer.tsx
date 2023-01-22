@@ -45,7 +45,7 @@ export const Customer: React.FC<CustomerType> = ({ guid, full_name, avatar, comp
       <td>
         <div className="clearfix mb-2">
           <div className="float-start">
-            <div className="fw-semibold">Latest investment: {purchased_total.toLocaleString()} ({currency_code})</div>
+            <div className="fw-semibold">Latest investment: {purchased_total?.toLocaleString()} ({currency_code})</div>
           </div>
         </div>
         <ProgressBar className="progress-thin" style={{ backgroundColor: graph_hex }} now={bar_progress} animated />
