@@ -11,7 +11,7 @@ export const Breadcrumb = () => {
       </BootstrapBreadcrumb.Item>
       <BootstrapBreadcrumb.Item
         linkProps={{ className: 'text-decoration-none' }}
-        href="/"
+        href="/customers"
       >
         Clients
       </BootstrapBreadcrumb.Item>

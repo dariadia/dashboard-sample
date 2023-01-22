@@ -63,7 +63,7 @@ const CardGraph: React.FC<{ minified?: boolean; shownSet: string; switchSet: Dis
           <div className="small">January - March 2023</div>
         </div>
         <div className="d-none d-md-block">
-        {!minified && <ButtonGroup aria-label="Graph toolbar" className="mx-3">
+          {!minified && <ButtonGroup aria-label="Graph toolbar" className="mx-3">
             <input
               className="btn-check"
               id="option1"
@@ -134,7 +134,7 @@ const CardGraph: React.FC<{ minified?: boolean; shownSet: string; switchSet: Dis
             now={20}
           />
         </div>
-        {!minified &&  <div className="col mb-sm-2 mb-0">
+        {!minified && <div className="col mb-sm-2 mb-0">
           <div>New Customers</div>
           <div className="fw-semibold">1,536 Customers (5%)</div>
           <ProgressBar
@@ -804,11 +804,16 @@ const Home: NextPage = () => {
                   </tr>)}
                 </tbody>
               </table>
-            </div></Card.Body>
+            </div>
+            <Button className="mt-3 mb-2" variant="primary" href="/customers">
+              More
+            </Button>
+          </Card.Body>
         </Card>
       </div>
     </div>
-  </AdminLayout>)
+  </AdminLayout>
+  )
 }
 
 export default Home

@@ -4,6 +4,7 @@ import { Customer } from '@components'
 import { faUsers } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import useSWRInfinite from "swr/infinite"
+import { Button } from 'react-bootstrap'
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json())
 
@@ -39,7 +40,9 @@ export default function Index() {
           </tbody>
         </table>
       </div>
-      <button onClick={() => setSize(size + 1)}>Load More</button>
+      <Button className="my-3" variant="primary" onClick={() => setSize(size + 1)}>
+        Load more
+      </Button>
     </AdminLayout>
   )
 }
