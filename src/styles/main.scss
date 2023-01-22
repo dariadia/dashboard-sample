@@ -73,3 +73,11 @@ $highlight: #F9F871;
 .bg-complementary {
   background-color: $complementary;
 }
+
+.customer-name > a {
+  color: white;
+  text-decoration: none;
+  &:hover {
+    color: $highlight;
+  }
+}

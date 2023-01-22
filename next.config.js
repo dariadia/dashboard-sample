@@ -13,7 +13,8 @@ const nextConfig = {
       'images.pexels.com',  
       'st2.depositphotos.com',
       'img.freepik.com',
-      'media.istockphoto.com'
+      'media.istockphoto.com',
+      'robohash.org',
     ],
   },
 }

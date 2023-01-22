@@ -28,16 +28,26 @@ import {
   faCcVisa,
   faCcMastercard,
   faCcDinersClub,
+  faCcJcb,
+  faAlipay,
+  faCcApplePay,
+  faSwift,
 } from '@fortawesome/free-brands-svg-icons'
 import React, { Dispatch, SetStateAction, useState } from 'react'
 import { DATA, PERSONS } from 'src/data/persons'
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
 
-const CardIconByType = {
+export const CardIconByType = {
   visa: faCcVisa,
   amex: faCcAmex,
   mastercard: faCcMastercard,
   'diners-club-international': faCcDinersClub,
+  'diners-club-enroute': faCcDinersClub,
+  jcb: faCcJcb,
+  'china-unionpay': faAlipay,
+  americanexpress: faCcAmex,
+  solo: faCcApplePay,
+  switch: faSwift
 }
 
 Chart.register(CategoryScale, LinearScale, PointElement, LineElement, BarElement, Tooltip, Filler)
@@ -53,7 +63,7 @@ const CardGraph: React.FC<{ minified?: boolean; shownSet: string; switchSet: Dis
           <div className="small">January - March 2023</div>
         </div>
         <div className="d-none d-md-block">
-        {!minified && <ButtonGroup aria-label="Graph toolbar" className="mx-3">
+          {!minified && <ButtonGroup aria-label="Graph toolbar" className="mx-3">
             <input
               className="btn-check"
               id="option1"
@@ -124,7 +134,7 @@ const CardGraph: React.FC<{ minified?: boolean; shownSet: string; switchSet: Dis
             now={20}
           />
         </div>
-        {!minified &&  <div className="col mb-sm-2 mb-0">
+        {!minified && <div className="col mb-sm-2 mb-0">
           <div>New Customers</div>
           <div className="fw-semibold">1,536 Customers (5%)</div>
           <ProgressBar
@@ -260,11 +270,10 @@ const Home: NextPage = () => {
               >
                 <FontAwesomeIcon fixedWidth icon={faEllipsisVertical} />
               </Dropdown.Toggle>
-
               <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                <Dropdown.Item onClick={() => alert("This is action 1")}>Action</Dropdown.Item>
+                <Dropdown.Item onClick={() => alert("This is action 2")}>Another action</Dropdown.Item>
+                <Dropdown.Item onClick={() => alert("This is action 3")}>Something else</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
           </Card.Body>
@@ -350,9 +359,9 @@ const Home: NextPage = () => {
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                <Dropdown.Item onClick={() => alert("This is action 1")}>Action</Dropdown.Item>
+                <Dropdown.Item onClick={() => alert("This is action 2")}>Another action</Dropdown.Item>
+                <Dropdown.Item onClick={() => alert("This is action 3")}>Something else</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
           </Card.Body>
@@ -435,11 +444,10 @@ const Home: NextPage = () => {
               >
                 <FontAwesomeIcon fixedWidth icon={faEllipsisVertical} />
               </Dropdown.Toggle>
-
               <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                <Dropdown.Item onClick={() => alert("This is action 1")}>Action</Dropdown.Item>
+                <Dropdown.Item onClick={() => alert("This is action 2")}>Another action</Dropdown.Item>
+                <Dropdown.Item onClick={() => alert("This is action 3")}>Something else</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
           </Card.Body>
@@ -511,9 +519,9 @@ const Home: NextPage = () => {
                 <FontAwesomeIcon fixedWidth icon={faEllipsisVertical} />
               </Dropdown.Toggle>
               <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                <Dropdown.Item onClick={() => alert("This is action 1")}>Action</Dropdown.Item>
+                <Dropdown.Item onClick={() => alert("This is action 2")}>Another action</Dropdown.Item>
+                <Dropdown.Item onClick={() => alert("This is action 3")}>Something else</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
           </Card.Body>
@@ -782,11 +790,11 @@ const Home: NextPage = () => {
                           <FontAwesomeIcon fixedWidth icon={faEllipsisVertical} />
                         </Dropdown.Toggle>
                         <Dropdown.Menu>
-                          <Dropdown.Item href="#/action-1">Info</Dropdown.Item>
-                          <Dropdown.Item href="#/action-2">Edit</Dropdown.Item>
+                          <Dropdown.Item onClick={() => alert("This is action 1")}>Info</Dropdown.Item>
+                          <Dropdown.Item onClick={() => alert("This is action 2")}>Edit</Dropdown.Item>
                           <Dropdown.Item
                             className="text-danger"
-                            href="#/action-3"
+                            onClick={() => alert("This is action 3")}
                           >
                             Delete
                           </Dropdown.Item>
@@ -796,11 +804,16 @@ const Home: NextPage = () => {
                   </tr>)}
                 </tbody>
               </table>
-            </div></Card.Body>
+            </div>
+            <Button className="mt-3 mb-2" variant="primary" href="/customers">
+              More
+            </Button>
+          </Card.Body>
         </Card>
       </div>
     </div>
-  </AdminLayout>)
+  </AdminLayout>
+  )
 }
 
 export default Home
