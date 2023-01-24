@@ -15,8 +15,8 @@ export default function Index() {
   let labels = [":00", ":02", ":04", ":06", ":08", ":10", ":12", ":14", ":16", ":18", ":20", ":22", ":24", ":26", ":28", ":30", ":32", ":34", ":36", ":38", ":40", ":42", ":44", ":46", ":48", ":50", ":52", ":54", ":56", ":58"]
 
   const [dataLabels, incrementLabels] = useState(labels)
-  const [dataOnePoints, incrementOnePoints] = useState(dataOne)
-  const [dataTwoPoints, incrementTwoPoints] = useState(dataTwo)
+  const [dataOnePoints, incrementOnePoints] = useState([250, 205, 204, 260, 190, 200, 175, 194, 240, 150, 190, 200, 260, 300, 169, 210, 300, 190, 200, 201, 210, 180, 170, 203, 240, 190, 250, 255, 180, 200])
+  const [dataTwoPoints, incrementTwoPoints] = useState([150, 130, 135, 150, 165, 155, 190, 200, 201, 190, 180, 185, 202, 205, 209, 170, 179, 200, 210, 220, 190, 198, 203, 209, 195, 189, 200, 230, 205, 195])
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -29,17 +29,14 @@ export default function Index() {
 
 
   if (errorOne || errorTwo) return <div>failed to load</div>
-  if (!dataOnePoints || !dataTwoPoints) return null
-
-  let companyOne: GraphItem[] = [...dataOnePoints.map((item: GraphItem) => item?.close)]
-  let companyTwo: GraphItem[] = [...dataTwoPoints.map((item: GraphItem) => item?.close)]
+  if (!dataOne || !dataTwo) return null
 
   return (
     <AdminLayout>
       <div
         style={{
           height: '300px',
-          marginTop: '40px',
+          marginTop: '50px',
         }}
       >
         <Line
@@ -50,13 +47,13 @@ export default function Index() {
               borderColor: 'blue',
               pointHoverBackgroundColor: '#fff',
               borderWidth: 2,
-              data: companyOne,
+              data: dataOnePoints,
             }, {
               label: `${dataTwo[0]?.company_name} (${dataTwo[0]?.industry})`,
               borderColor: 'green',
               pointHoverBackgroundColor: '#fff',
               borderWidth: 1,
-              data: companyTwo,
+              data: dataTwoPoints,
             }],
           }}
           options={{
@@ -74,7 +71,7 @@ export default function Index() {
               },
               y: {
                 beginAtZero: true,
-                max: 350,
+                max: 400,
                 ticks: {
                   maxTicksLimit: 5,
                   stepSize: Math.ceil(250 / 5),
