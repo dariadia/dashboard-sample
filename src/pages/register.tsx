@@ -45,7 +45,6 @@ const Register: NextPage = () => {
                       aria-label="Username"
                     />
                   </InputGroup>
-
                   <InputGroup className="mb-3">
                     <InputGroup.Text>
                       <FontAwesomeIcon icon={faEnvelope} fixedWidth />
@@ -59,9 +58,10 @@ const Register: NextPage = () => {
                       aria-label="Email"
                     />
                   </InputGroup>
-
                   <InputGroup className="mb-3">
-                    <InputGroup.Text><FontAwesomeIcon icon={faLock} fixedWidth /></InputGroup.Text>
+                    <InputGroup.Text>
+                      <FontAwesomeIcon icon={faLock} fixedWidth />
+                    </InputGroup.Text>
                     <Form.Control
                       type="password"
                       name="password"
@@ -71,7 +71,6 @@ const Register: NextPage = () => {
                       aria-label="Password"
                     />
                   </InputGroup>
-
                   <InputGroup className="mb-3">
                     <InputGroup.Text><FontAwesomeIcon icon={faLock} fixedWidth /></InputGroup.Text>
                     <Form.Control
@@ -84,7 +83,7 @@ const Register: NextPage = () => {
                     />
                   </InputGroup>
 
-                  <Button type="submit" className="d-block w-100" disabled={submitting} variant="success">
+                  <Button type="submit" className="register-button d-block w-100" disabled={submitting}>
                     Create Account
                   </Button>
                 </form>

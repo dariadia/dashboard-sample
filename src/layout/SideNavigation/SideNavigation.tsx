@@ -140,59 +140,12 @@ export const AsideNav: React.FC = () => {
         Stock Trends
         <small className="ms-auto"><Badge bg="danger" className="ms-auto">DEMO</Badge></small>
       </AsideNavItem>
-      <AsideNavTitle>Theme</AsideNavTitle>
-      <AsideNavItem icon={faDroplet} href="colors.html">Colors</AsideNavItem>
-      <AsideNavItem icon={faPencil} href="typography.html">Typography</AsideNavItem>
-      <AsideNavTitle>Components</AsideNavTitle>
-      <AsideNavGroup toggleIcon={faPuzzlePiece} toggleText="Base">
-        <AsideNavItem href="base/accordion.html">Accordion</AsideNavItem>
-        <AsideNavItem href="base/breadcrumb.html">Breadcrumb</AsideNavItem>
-        <AsideNavItem href="base/cards.html">Cards</AsideNavItem>
-        <AsideNavItem href="base/carousel.html">Carousel</AsideNavItem>
-        <AsideNavItem href="base/collapse.html">Collapse</AsideNavItem>
-        <AsideNavItem href="base/list-group.html">List group</AsideNavItem>
-        <AsideNavItem href="base/navs.html">Navs</AsideNavItem>
-        <AsideNavItem href="base/pagination.html">Pagination</AsideNavItem>
-        <AsideNavItem href="base/popovers.html">Popovers</AsideNavItem>
-        <AsideNavItem href="base/progress.html">Progress</AsideNavItem>
-        <AsideNavItem href="base/scrollspy.html">Scrollspy</AsideNavItem>
-        <AsideNavItem href="base/spinners.html">Spinners</AsideNavItem>
-        <AsideNavItem href="base/tables.html">Tables</AsideNavItem>
-        <AsideNavItem href="base/tabs.html">Tabs</AsideNavItem>
-        <AsideNavItem href="base/tooltips.html">Tooltips</AsideNavItem>
-      </AsideNavGroup>
-      <AsideNavGroup toggleIcon={faLocationArrow} toggleText="Buttons">
-        <AsideNavItem href="buttons/buttons.html">Buttons</AsideNavItem>
-        <AsideNavItem href="buttons/button-group.html">Buttons Group</AsideNavItem>
-        <AsideNavItem href="buttons/dropdowns.html">Dropdowns</AsideNavItem>
-      </AsideNavGroup>
-      <AsideNavItem icon={faChartPie} href="charts.html">Charts</AsideNavItem>
-      <AsideNavGroup toggleIcon={faFileLines} toggleText="Forms">
-        <AsideNavItem href="forms/form-control.html">Form Control</AsideNavItem>
-        <AsideNavItem href="forms/select.html">Select</AsideNavItem>
-        <AsideNavItem href="forms/checks-radios.html">Checks and radios</AsideNavItem>
-        <AsideNavItem href="forms/range.html">Range</AsideNavItem>
-        <AsideNavItem href="forms/input-group.html">Input group</AsideNavItem>
-        <AsideNavItem href="forms/floating-labels.html">Floating labels</AsideNavItem>
-        <AsideNavItem href="forms/layout.html">Layout</AsideNavItem>
-        <AsideNavItem href="forms/validation.html">Validation</AsideNavItem>
-      </AsideNavGroup>
-      <AsideNavGroup toggleIcon={faBell} toggleText="Notifications">
-        <AsideNavItem href="notifications/alerts.html">Alerts</AsideNavItem>
-        <AsideNavItem href="notifications/badge.html">Badge</AsideNavItem>
-        <AsideNavItem href="notifications/modals.html">Modals</AsideNavItem>
-        <AsideNavItem href="notifications/toasts.html">Toasts</AsideNavItem>
-      </AsideNavGroup>
-      <AsideNavItem icon={faCalculator} href="widgets.html">
-        Widgets
-        <small className="ms-auto"><Badge bg="info">NEW</Badge></small>
-      </AsideNavItem>
-      <AsideNavTitle>Extras</AsideNavTitle>
-      <AsideNavGroup toggleIcon={faStar} toggleText="Pages">
+      <AsideNavTitle>Pages</AsideNavTitle>
+      <AsideNavGroup toggleIcon={faStar} toggleText="Open">
         <AsideNavItem icon={faRightToBracket} href="login">Login</AsideNavItem>
         <AsideNavItem icon={faAddressCard} href="register">Register</AsideNavItem>
-        <AsideNavItem icon={faBug} href="404.html">Error 404</AsideNavItem>
-        <AsideNavItem icon={faBug} href="500.html">Error 500</AsideNavItem>
+        <AsideNavItem icon={faBug} href="404">Error 404</AsideNavItem>
+        <AsideNavItem icon={faBug} href="500">Error 500</AsideNavItem>
       </AsideNavGroup>
     </ul>
   )

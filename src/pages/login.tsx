@@ -70,10 +70,9 @@ const Login: NextPage = () => {
                         aria-label="Password"
                       />
                     </InputGroup>
-
                     <Row>
                       <Col xs={6}>
-                        <Button className="px-4" variant="primary" type="submit" disabled={submitting}>Login</Button>
+                        <Button className="login-button px-4" type="submit" disabled={submitting}>Login</Button>
                       </Col>
                       <Col xs={6} className="text-end">
                         <Button className="px-0" variant="link" type="submit">
@@ -87,7 +86,7 @@ const Login: NextPage = () => {
               </Col>
               <Col
                 md={5}
-                className="bg-primary text-white d-flex align-items-center justify-content-center p-5"
+                className="text-white d-flex align-items-center justify-content-center p-5 login-column"
               >
                 <div className="text-center">
                   <h2>Sign up</h2>
@@ -96,7 +95,7 @@ const Login: NextPage = () => {
                     tempor incididunt ut labore et dolore magna aliqua.
                   </p>
                   <Link href="/register">
-                    <button className="btn btn-lg btn-outline-dark mt-3" type="button">
+                    <button className="btn btn-lg btn-outline-light mt-3" type="button">
                       Register Now!
                     </button>
                   </Link>

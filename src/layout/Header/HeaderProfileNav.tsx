@@ -82,7 +82,6 @@ export const HeaderProfileNav: React.FC = () => {
               </ProfileDropdownItem>
             </Dropdown.Item>
           </Link>
-
           <Dropdown.Header className="bg-dark fw-bold">Settings</Dropdown.Header>
           <Link href="/" passHref legacyBehavior>
             <Dropdown.Item>
