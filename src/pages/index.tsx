@@ -181,7 +181,7 @@ const GraphSet: React.FC = () => (<div
         ],
         fill: true,
       }, {
-        label: 'My Second dataset',
+        label: 'Customer dataset',
         borderColor: 'rgba(25, 135, 84, 1)',
         pointHoverBackgroundColor: '#fff',
         borderWidth: 2,

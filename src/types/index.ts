@@ -1,2 +1,2 @@
 export * from './customer'
-export * from './resource-list'
+export * from './graph'

@@ -136,8 +136,8 @@ export const AsideNav: React.FC = () => {
         Customers
         <small className="ms-auto"><Badge bg="info" className="ms-auto">NEW</Badge></small>
       </AsideNavItem>
-      <AsideNavItem icon={faGauge} href="/latest">
-        Latest Trends
+      <AsideNavItem icon={faGauge} href="/stock">
+        Stock Trends
         <small className="ms-auto"><Badge bg="danger" className="ms-auto">DEMO</Badge></small>
       </AsideNavItem>
       <AsideNavTitle>Theme</AsideNavTitle>
