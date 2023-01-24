@@ -81,3 +81,9 @@ $highlight: #F9F871;
     color: $highlight;
   }
 }
+
+.login-column,
+.login-button,
+.register-button {
+  background-color: $complementary;
+}
