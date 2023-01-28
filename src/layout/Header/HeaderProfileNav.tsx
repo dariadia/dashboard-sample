@@ -49,70 +49,68 @@ export const HeaderProfileNav: React.FC = () => {
           </div>
         </Dropdown.Toggle>
         <Dropdown.Menu className="pt-0">
-          <Dropdown.Header className="bg-dark fw-bold rounded-top">Account</Dropdown.Header>
+          <Dropdown.Header className="bg-dark fw-bold">Account</Dropdown.Header>
           <Link href="/" passHref legacyBehavior>
-            <Dropdown.Item>
+            <Dropdown.Item className="bg-complementary text-white">
               <ProfileDropdownItem icon={faBell}>
                 Updates
-                <Badge bg="info" className="ms-2">42</Badge>
+                <Badge bg="info" className="ms-2">1</Badge>
               </ProfileDropdownItem>
             </Dropdown.Item>
           </Link>
           <Link href="/" passHref legacyBehavior>
-            <Dropdown.Item>
+            <Dropdown.Item className="bg-complementary text-white">
               <ProfileDropdownItem icon={faEnvelopeOpen}>
                 Updates
-                <Badge bg="success" className="ms-2">42</Badge>
+                <Badge bg="success" className="ms-2">2</Badge>
               </ProfileDropdownItem>
             </Dropdown.Item>
           </Link>
           <Link href="/" passHref legacyBehavior>
-            <Dropdown.Item>
+            <Dropdown.Item className="bg-complementary text-white">
               <ProfileDropdownItem icon={faListCheck}>
                 Tasks
-                <Badge bg="danger" className="ms-2">42</Badge>
+                <Badge bg="danger" className="ms-2">3</Badge>
               </ProfileDropdownItem>
             </Dropdown.Item>
           </Link>
           <Link href="/" passHref legacyBehavior>
-            <Dropdown.Item>
+            <Dropdown.Item className="bg-complementary text-white">
               <ProfileDropdownItem icon={faMessage}>
                 Messages
-                <Badge bg="warning" className="ms-2">42</Badge>
+                <Badge bg="warning" className="ms-2">4</Badge>
               </ProfileDropdownItem>
             </Dropdown.Item>
           </Link>
           <Dropdown.Header className="bg-dark fw-bold">Settings</Dropdown.Header>
           <Link href="/" passHref legacyBehavior>
-            <Dropdown.Item>
+            <Dropdown.Item className="bg-complementary text-white">
               <ProfileDropdownItem icon={faUser}>Profile</ProfileDropdownItem>
             </Dropdown.Item>
           </Link>
           <Link href="/" passHref legacyBehavior>
-            <Dropdown.Item>
+            <Dropdown.Item className="bg-complementary text-white">
               <ProfileDropdownItem icon={faGear}>Settings</ProfileDropdownItem>
             </Dropdown.Item>
           </Link>
           <Link href="/" passHref legacyBehavior>
-            <Dropdown.Item>
+            <Dropdown.Item className="bg-complementary text-white">
               <ProfileDropdownItem icon={faCreditCard}>Payments</ProfileDropdownItem>
             </Dropdown.Item>
           </Link>
           <Link href="/" passHref legacyBehavior>
-            <Dropdown.Item>
+            <Dropdown.Item className="bg-complementary text-white">
               <ProfileDropdownItem icon={faFile}>Projects</ProfileDropdownItem>
             </Dropdown.Item>
           </Link>
-
-          <Dropdown.Divider />
-
+          <Dropdown.Divider className='bg-dark'/>
           <Link href="/" passHref legacyBehavior>
-            <Dropdown.Item>
+            <Dropdown.Item className="bg-complementary text-white">
               <ProfileDropdownItem icon={faLock}>Lock Account</ProfileDropdownItem>
             </Dropdown.Item>
           </Link>
           <Link href="/login" passHref legacyBehavior>
-            <Dropdown.Item>
+            <Dropdown.Item className="bg-complementary text-white">
               <ProfileDropdownItem icon={faPowerOff}>Logout</ProfileDropdownItem>
             </Dropdown.Item>
           </Link>

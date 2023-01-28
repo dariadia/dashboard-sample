@@ -10,7 +10,8 @@ $highlight: #F9F871;
 .avatar {
   width: $avatar-size;
   height: $avatar-size;
-  & > img {
+
+  &>img {
     object-fit: cover;
   }
 }
@@ -27,14 +28,18 @@ $highlight: #F9F871;
 .header {
   background-color: $main;
   color: white;
+
   .header-navbar {
     min-height: 3rem;
+
     .header-toggler {
       color: $accent;
     }
+
     .header-nav {
       .nav-link {
         color: $accent;
+
         &:hover {
           color: $highlight;
         }
@@ -44,9 +49,11 @@ $highlight: #F9F871;
 
   .breadcrumb {
     min-height: 2rem;
+
     .breadcrumb-item {
       a {
         color: $accent;
+
         &:hover {
           color: $highlight;
         }
@@ -58,15 +65,17 @@ $highlight: #F9F871;
 .footer {
   min-height: $footer-height;
   color: white;
+
   a {
     color: $accent;
+
     &:hover {
       color: $highlight;
     }
   }
 }
 
-.card-with-border { 
+.card-with-border {
   border: 2px solid $complementary;
 }
 
@@ -74,9 +83,10 @@ $highlight: #F9F871;
   background-color: $complementary;
 }
 
-.customer-name > a {
+.customer-name>a {
   color: white;
   text-decoration: none;
+
   &:hover {
     color: $highlight;
   }
@@ -86,4 +96,12 @@ $highlight: #F9F871;
 .login-button,
 .register-button {
   background-color: $complementary;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  color: black!important;
+  text-decoration: none;
+  background: rgb(135, 214, 127, 0.8);
+  transition: all 0.2s;
 }
