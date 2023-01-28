@@ -61,7 +61,7 @@ export const HeaderProfileNav: React.FC = () => {
           <Link href="/" passHref legacyBehavior>
             <Dropdown.Item className="bg-complementary text-white">
               <ProfileDropdownItem icon={faEnvelopeOpen}>
-                Updates
+                Mail
                 <Badge bg="success" className="ms-2">2</Badge>
               </ProfileDropdownItem>
             </Dropdown.Item>
