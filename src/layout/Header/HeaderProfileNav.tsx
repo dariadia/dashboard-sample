@@ -38,7 +38,7 @@ export const HeaderProfileNav: React.FC = () => {
   return (
     <Nav>
       <Dropdown as={NavItem}>
-        <Dropdown.Toggle variant="link" bsPrefix="shadow-none" className="py-0 px-2 rounded-0" id="dropdown-profile">
+        <Dropdown.Toggle variant="link" bsPrefix="shadow-none" className="py-0 px-2 bg-dark rounded-0" id="dropdown-profile">
           <div className="avatar position-relative">
             <Image
               fill
@@ -48,7 +48,7 @@ export const HeaderProfileNav: React.FC = () => {
             />
           </div>
         </Dropdown.Toggle>
-        <Dropdown.Menu className="pt-0">
+        <Dropdown.Menu className="pt-0 bg-complementary">
           <Dropdown.Header className="bg-dark fw-bold">Account</Dropdown.Header>
           <Link href="/" passHref legacyBehavior>
             <Dropdown.Item className="bg-complementary text-white">
@@ -103,12 +103,7 @@ export const HeaderProfileNav: React.FC = () => {
               <ProfileDropdownItem icon={faFile}>Projects</ProfileDropdownItem>
             </Dropdown.Item>
           </Link>
-          <Dropdown.Divider className='bg-dark'/>
-          <Link href="/" passHref legacyBehavior>
-            <Dropdown.Item className="bg-complementary text-white">
-              <ProfileDropdownItem icon={faLock}>Lock Account</ProfileDropdownItem>
-            </Dropdown.Item>
-          </Link>
+          <Dropdown.Header className="bg-dark fw-bold"></Dropdown.Header>
           <Link href="/login" passHref legacyBehavior>
             <Dropdown.Item className="bg-complementary text-white">
               <ProfileDropdownItem icon={faPowerOff}>Logout</ProfileDropdownItem>
