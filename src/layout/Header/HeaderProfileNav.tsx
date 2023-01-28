@@ -44,7 +44,7 @@ export const HeaderProfileNav: React.FC = () => {
               fill
               className="rounded-circle"
               src={PERSONS[0]}
-              alt="user@email.com"
+              alt="YourName avatar"
             />
           </div>
         </Dropdown.Toggle>
